@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\libs\universal-image-loader-1.8.6-with-sources.jar"
+        jumboMode="false"
+        revision="24.0.2"
+        sha1="9ad605dd55be2e74e614b2ab2ff466439c4461b7">
+        <dex dex="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\build\intermediates\pre-dexed\debug\universal-image-loader-1.8.6-with-sources_ffde4270c427deec254606b87e1d390b4219df06.jar" />
+    </item>
+
+</items>

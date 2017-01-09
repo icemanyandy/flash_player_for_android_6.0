@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\2016_work\\mycode\\syncgit\\flash_player_for_android_6.0\\vlc_sample\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_play_over_video.png",
+        "source": "D:\\2016_work\\mycode\\syncgit\\flash_player_for_android_6.0\\vlc_sample\\res\\drawable-hdpi\\ic_action_play_over_video.png"
+    },
+    {
+        "merged": "D:\\2016_work\\mycode\\syncgit\\flash_player_for_android_6.0\\vlc_sample\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\2016_work\\mycode\\syncgit\\flash_player_for_android_6.0\\vlc_sample\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\2016_work\\mycode\\syncgit\\flash_player_for_android_6.0\\vlc_sample\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_pause_over_video.png",
+        "source": "D:\\2016_work\\mycode\\syncgit\\flash_player_for_android_6.0\\vlc_sample\\res\\drawable-hdpi\\ic_action_pause_over_video.png"
+    }
+]

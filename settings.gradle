@@ -1,0 +1,2 @@
+include ':vlc_sample'
+include ':AudioVideoRecordingSample-master'

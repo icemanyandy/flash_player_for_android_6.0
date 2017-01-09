@@ -1,0 +1,65 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:2:1-36:12
+	package
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:3:5-41
+	xmlns:android
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:6:5-68
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:6:22-65
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:7:22-77
+uses-sdk
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:9:5-44
+	android:minSdkVersion
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:9:15-41
+application
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:10:5-34:19
+	android:label
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:12:9-41
+	android:allowBackup
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:11:9-35
+	android:icon
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:13:9-45
+	android:theme
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:14:9-40
+activity#com.wass08.vlcsimpleplayer.MediaSelector
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:15:9-23:20
+	android:label
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:17:13-45
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:16:13-68
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:18:13-22:29
+action#android.intent.action.MAIN
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:21:17-77
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:21:27-74
+activity#com.wass08.vlcsimpleplayer.FullscreenVlcPlayer
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:24:9-32:20
+	android:label
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:27:13-73
+	android:configChanges
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:26:13-74
+	android:theme
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:28:14-52
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:25:13-74
+intent-filter#android.intent.action.VIEW
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:29:13-31:27
+action#android.intent.action.VIEW
+ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:30:11-62
+	android:name
+		ADDED from D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample\AndroidManifest.xml:30:19-60
