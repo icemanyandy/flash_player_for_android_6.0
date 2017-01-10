@@ -35,36 +35,14 @@ import org.videolan.libvlc.MediaList;
 
 import java.lang.ref.WeakReference;
 
-
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- *
- * @see SystemUiHider
- */
 public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callback, IVideoPlayer {
 
     private String              urlToStream;
 
-    // Display Surface
-    private LinearLayout        vlcContainer;
     private SurfaceView         mSurface;
     private SurfaceHolder       holder;
-
-    // Overlay / Controls
-
-    private FrameLayout         vlcOverlay;
-    private ImageView           vlcButtonPlayPause;
-    private Handler             handlerOverlay;
-    private Runnable            runnableOverlay;
-    private Handler             handlerSeekbar;
-    private Runnable            runnableSeekbar;
-    private SeekBar             vlcSeekbar;
-    private TextView            vlcDuration;
-    private TextView            overlayTitle;
-
     // media player
-      LibVLC              libvlc;
+    public LibVLC              libvlc;
     private int                 mVideoWidth;
     private int                 mVideoHeight;
     private final static int    VideoSizeChanged = -1;
@@ -72,155 +50,43 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Retrieve our url
         Bundle b = getIntent().getExtras();
         urlToStream = b.getString("url", null);
 
-        // SETUP THE UI
-        setContentView(R.layout.activity_fullscreen_vlc_player);
+       setContentView(R.layout.activity_fullscreen_vlc_player);
+       SbVideoView sbview =  (SbVideoView)findViewById(R.id.vlc_surface);
+       //  mSurface = (SurfaceView) findViewById(R.id.vlc_surface);
+       // playMovie();
+       sbview.playMovie(urlToStream);
 
-        // VLC
-        vlcContainer = (LinearLayout) findViewById(R.id.vlc_container);
-        mSurface = (SurfaceView) findViewById(R.id.vlc_surface);
-
-
-        // OVERLAY / CONTROLS
-        vlcOverlay = (FrameLayout) findViewById(R.id.vlc_overlay);
-        vlcButtonPlayPause = (ImageView) findViewById(R.id.vlc_button_play_pause);
-        vlcSeekbar = (SeekBar) findViewById(R.id.vlc_seekbar);
-        vlcDuration = (TextView) findViewById(R.id.vlc_duration);
-
-        overlayTitle = (TextView) findViewById(R.id.vlc_overlay_title);
-        overlayTitle.setText(urlToStream);
-
-        // AUTOSTART
-        playMovie();
-        
- 
     }
 
-    private void showOverlay() {
-        vlcOverlay.setVisibility(View.VISIBLE);
-    }
 
-    private void hideOverlay() {
-        vlcOverlay.setVisibility(View.GONE);
-    }
+
+
 
     private void setupControls() {
-        // PLAY PAUSE
-        vlcButtonPlayPause.setOnClickListener(new View.OnClickListener() {
+        mSurface.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (libvlc.isPlaying()) {
-                    libvlc.pause();
-                    vlcButtonPlayPause.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_play_over_video));
-                } else {
-                    libvlc.play();
-                    vlcButtonPlayPause.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
-                }
-            }
-        });
-
-        // SEEKBAR
-        handlerSeekbar = new Handler();
-        runnableSeekbar = new Runnable() {
-            @Override
-            public void run() {
-                if (libvlc != null) {
-                    long curTime = libvlc.getTime();
-                    long totalTime = (long) (curTime / libvlc.getPosition());
-                    int minutes = (int) (curTime / (60 * 1000));
-                    int seconds = (int) ((curTime / 1000) % 60);
-                    int endMinutes = (int) (totalTime / (60 * 1000));
-                    int endSeconds = (int) ((totalTime / 1000) % 60);
-                    String duration = String.format("%02d:%02d / %02d:%02d", minutes, seconds, endMinutes, endSeconds);
-                    vlcSeekbar.setProgress((int) (libvlc.getPosition() * 100));
-                    vlcDuration.setText(duration);
-                }
-                handlerSeekbar.postDelayed(runnableSeekbar, 1000);
-            }
-        };
-
-        runnableSeekbar.run();
-        vlcSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Log.v("NEW POS", "pos is : " + i);
-                //if (i != 0)
-                //    libvlc.setPosition(((float) i / 100.0f));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        // OVERLAY
-        handlerOverlay = new Handler();
-        runnableOverlay = new Runnable() {
-            @Override
-            public void run() {
-                vlcOverlay.setVisibility(View.GONE);
-                toggleFullscreen(true);
-            }
-        };
-        final long timeToDisappear = 3000;
-        handlerOverlay.postDelayed(runnableOverlay, timeToDisappear);
-        vlcContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vlcOverlay.setVisibility(View.VISIBLE);
+                mSurface.setVisibility(View.VISIBLE);
                 rate += rateFrame;
                 if(rate>=5f)
                 	rate = 0f;
                 Toast.makeText(FullscreenVlcPlayer.this, "rate +"+rate , Toast.LENGTH_SHORT).show();
                 libvlc.setRate(rate);
-                
-                handlerOverlay.removeCallbacks(runnableOverlay);
-                handlerOverlay.postDelayed(runnableOverlay, timeToDisappear);
             }
         });
     }
 
     float rate = 1.0f;
     float rateFrame = 0.3f;
-    
     public void playMovie() {
         if (libvlc != null && libvlc.isPlaying())
             return ;
-        vlcContainer.setVisibility(View.VISIBLE);
         holder = mSurface.getHolder();
         holder.addCallback(this);
         createPlayer(urlToStream);
-    }
-
-
-    private void toggleFullscreen(boolean fullscreen)
-    {
-        WindowManager.LayoutParams attrs = getWindow().getAttributes();
-        if (fullscreen)
-        {
-            attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
-            vlcContainer.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-        else
-        {
-            attrs.flags &= ~WindowManager.LayoutParams.FLAG_FULLSCREEN;
-        }
-        getWindow().setAttributes(attrs);
     }
 
     @Override
@@ -237,10 +103,8 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
     @Override
     protected void onPause() {
         super.onPause();
-        //releasePlayer();
         if(libvlc != null)
         libvlc.stop();
-
     }
 
     @Override
@@ -248,12 +112,6 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
         super.onDestroy();
         releasePlayer();
     }
-
-    /**
-     * **********
-     * Surface
-     * ***********
-     */
 
     public void surfaceCreated(SurfaceHolder holder) {
     }
@@ -315,24 +173,10 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
         msg.sendToTarget();
     }
 
-    /**
-     * **********
-     * Player
-     * ***********
-     */
-
     private void createPlayer(String media) {
         releasePlayer();
         setupControls();
         try {
-            if (media.length() > 0) {
-                Toast toast = Toast.makeText(this, media, Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0,
-                        0);
-                toast.show();
-            }
-
-            // Create a new media player
             libvlc = LibVLC.getInstance();
             libvlc.setHardwareAcceleration(LibVLC.HW_ACCELERATION_FULL);
             libvlc.eventVideoPlayerActivityCreated(true);
@@ -355,8 +199,7 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
     }
 
     private void releasePlayer() {
-        if (handlerSeekbar != null && runnableSeekbar != null)
-            handlerSeekbar.removeCallbacks(runnableSeekbar);
+
         EventHandler.getInstance().removeHandler(mHandler);
         if (libvlc == null)
             return;
@@ -370,14 +213,7 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
         mVideoHeight = 0;
     }
 
-    /**
-     * **********
-     * Events
-     * ***********
-     */
-
     private Handler mHandler = new MyHandler(this);
-
     private static class MyHandler extends Handler {
         private WeakReference<FullscreenVlcPlayer> mOwner;
 
@@ -388,21 +224,21 @@ public class FullscreenVlcPlayer extends Activity implements SurfaceHolder.Callb
         @Override
         public void handleMessage(Message msg) {
             FullscreenVlcPlayer player = mOwner.get();
-
-            // Player events
             if (msg.what == VideoSizeChanged) {
                 player.setSize(msg.arg1, msg.arg2);
                 return;
             }
-
-            // Libvlc events
             Bundle b = msg.getData();
+            Integer dd = b.getInt("event");
             switch (b.getInt("event")) {
                 case EventHandler.MediaPlayerEndReached:
-                     LibVLC.restart(player);
-                    break;
+                    player.libvlc.stop();
+                    player.libvlc.setTime(0);
+                    player.libvlc.play();
+                     break;
                 case EventHandler.MediaPlayerPlaying:
                 case EventHandler.MediaPlayerPaused:
+                    break;
                 case EventHandler.MediaPlayerStopped:
                 default:
                     break;

@@ -27,17 +27,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000a;
-        public static final int button_start=0x7f080009;
-        public static final int textView=0x7f080007;
-        public static final int url_getter=0x7f080008;
-        public static final int vlc_button_play_pause=0x7f080003;
-        public static final int vlc_container=0x7f080000;
-        public static final int vlc_duration=0x7f080005;
-        public static final int vlc_overlay=0x7f080002;
-        public static final int vlc_overlay_title=0x7f080006;
-        public static final int vlc_seekbar=0x7f080004;
-        public static final int vlc_surface=0x7f080001;
+        public static final int action_settings=0x7f080004;
+        public static final int button_start=0x7f080003;
+        public static final int textView=0x7f080001;
+        public static final int url_getter=0x7f080002;
+        public static final int vlc_surface=0x7f080000;
     }
     public static final class layout {
         public static final int activity_fullscreen_vlc_player=0x7f030000;

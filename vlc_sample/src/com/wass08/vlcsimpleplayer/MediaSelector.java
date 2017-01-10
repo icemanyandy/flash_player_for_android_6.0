@@ -29,6 +29,7 @@ public class MediaSelector extends Activity {
 
                 // Pass the url from the input to the player
                 b.putString("url", urlGetter.getText().toString());
+                toFullscreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 toFullscreen.putExtras(b); //Put your id to your next Intent
                 startActivity(toFullscreen);
             }
