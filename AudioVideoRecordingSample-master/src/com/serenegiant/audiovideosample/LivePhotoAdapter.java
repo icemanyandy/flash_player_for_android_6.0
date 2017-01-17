@@ -1,14 +1,5 @@
 package com.serenegiant.audiovideosample;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
@@ -18,6 +9,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LivePhotoAdapter extends BaseAdapter {
 	Context mContext;
@@ -47,15 +47,34 @@ public class LivePhotoAdapter extends BaseAdapter {
 			}
 		}
 	}
-	
-	public String getVideoPath(int postion){
- 		 String defText =  iLivePhotoDir.getPath() + "/"+mPhotoImagePath.get(postion);
-		 String name1 = defText.replace(".jpg", ".mp4");
-		 File defFile = new File(defText.replace(".jpg", ".mov"));
-		 if(defFile.exists()){
-			 return defFile.getPath();
-		 }
-		 return name1;
+
+	public String getImagePath(int postion){
+		return iLivePhotoDir.getPath() + "/" + mPhotoImagePath.get(postion);
+	}
+
+	public String getVideoPath(int postion) {
+		String defText = iLivePhotoDir.getPath() + "/" + mPhotoImagePath.get(postion);
+		String defaultName = defText.replace(".jpg", ".mp4");
+		File defFile = new File(defaultName);
+		if (defFile.exists()) {
+			return defFile.getPath();
+		}
+		List<String> supportVideo = new ArrayList<>();
+		supportVideo.add(".mov");
+		supportVideo.add(".mkv");
+		supportVideo.add(".wmv");
+		supportVideo.add(".avi");
+		supportVideo.add(".mpg");
+		supportVideo.add(".mpeg");
+		supportVideo.add(".dat");
+		supportVideo.add(".3gp");
+		for(String sv:supportVideo) {
+			defFile = new File(defText.replace(".jpg", sv));
+			if (defFile.exists()) {
+				return defFile.getPath();
+			}
+		}
+		return defaultName;
 	}
 
 	public static void initImageLoader(Context context) {

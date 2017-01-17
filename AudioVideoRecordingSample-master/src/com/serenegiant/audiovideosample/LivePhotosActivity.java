@@ -27,23 +27,24 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 public class LivePhotosActivity extends Activity {
 	GridView mGridView;
 	LivePhotoAdapter mLivePhotoAdapter;
 	SelectPicPopupWindow dddd = null;
+	String currentPath ;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -56,7 +57,8 @@ public class LivePhotosActivity extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, final int position, long id) {
-				    SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(LivePhotosActivity.this,
+					currentPath = mLivePhotoAdapter.getVideoPath(position);
+ 				    SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(LivePhotosActivity.this,
 						new OnClickListener() {
 
 							@Override
@@ -66,9 +68,9 @@ public class LivePhotosActivity extends Activity {
 									Intent i=new Intent();
 									ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");  
 									i.putExtra("url", mLivePhotoAdapter.getVideoPath(position));
+									i.putExtra("img", mLivePhotoAdapter.getImagePath(position));
 									i.setComponent(com);  
-									startActivity(i);  
-									 
+									startActivity(i);
 								}
 							}
 						});
@@ -103,6 +105,13 @@ public class LivePhotosActivity extends Activity {
 					dismiss();
 				}
 			});
+			TextView tipsv = (TextView) mMenuView.findViewById(R.id.textView_tips);
+			if (!TextUtils.isEmpty(currentPath)){
+				tipsv.setText(currentPath);
+				this.setHeight(dip2px(context, 220));
+			}else{
+				this.setHeight(dip2px(context, 200));
+			}
 			// 设置按钮监听
 			btn_pick_photo.setOnClickListener(itemsOnClick);
 			btn_take_photo.setOnClickListener(itemsOnClick);
@@ -111,12 +120,16 @@ public class LivePhotosActivity extends Activity {
 			// 设置SelectPicPopupWindow弹出窗体的宽
 			this.setWidth(LayoutParams.FILL_PARENT);
 			// 设置SelectPicPopupWindow弹出窗体的高
-			this.setHeight(600);
 			// 设置SelectPicPopupWindow弹出窗体可点击
 			this.setFocusable(true);
 			// 设置SelectPicPopupWindow弹出窗体动画效果
 			this.setOutsideTouchable(false);
 		}
 
+	}
+
+	public static int dip2px(Context context, float dpValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (dpValue * scale + 0.5f);
 	}
 }

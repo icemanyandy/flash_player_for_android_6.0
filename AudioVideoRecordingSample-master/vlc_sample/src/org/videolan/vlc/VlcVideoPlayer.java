@@ -330,9 +330,31 @@ public class VlcVideoPlayer implements MediaPlayerControl, Handler.Callback, IVL
     private void reStartPlay() {
         if (isAttached && isLoop && isPrepare()) {
             LogUtils.i(tag, "reStartPlay setMedia");
-            //mMediaPlayer.setMedia(mMediaPlayer.getMedia());
-            if (isAttached)
+             mMediaPlayer.setMedia(mMediaPlayer.getMedia());
+            if (isAttached) {
+               // mMediaPlayer.stop();
+               // mMediaPlayer.setTime(0);
                 mMediaPlayer.play();
+             }
+        } else {
+            mainHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (isViewLife && mediaListenerEvent != null)
+                        mediaListenerEvent.eventStop(isPlayError);
+                }
+            });
+        }
+    }
+
+    private void reStartPlayOld() {
+        if (isAttached && isLoop && isPrepare()) {
+            LogUtils.i(tag, "reStartPlay setMedia");
+            mMediaPlayer.setMedia(mMediaPlayer.getMedia());
+            if (isAttached) {
+                //mMediaPlayer.setRate(getPlaybackSpeed());
+                mMediaPlayer.play();
+            }
         } else {
             mainHandler.post(new Runnable() {
                 @Override
@@ -412,8 +434,8 @@ public class VlcVideoPlayer implements MediaPlayerControl, Handler.Callback, IVL
             case MediaPlayer.Event.Opening:
                 LogUtils.i(tag, "Opening");
                 canInfo = true;
-                speed = 1f;
-                mMediaPlayer.setRate(1f);
+                //speed = 1f;
+                //mMediaPlayer.setRate(1f);
                 break;
             case MediaPlayer.Event.Playing:
                 LogUtils.i(tag, "Playing");
@@ -524,24 +546,11 @@ public class VlcVideoPlayer implements MediaPlayerControl, Handler.Callback, IVL
         }
     }
 
-    public float getRate(){
-        if (isPrepare()) {
-             return mMediaPlayer.getRate();
-        }
-        return 1.0f;
-    }
-
-
-    public void setRate(float rate){
-        if (isPrepare()) {
-            mMediaPlayer.setRate(rate);
-        }
-    }
 
     @Override
     public long getDuration() {
         if (isPrepare() && canInfo) {
-             return mMediaPlayer.getLength();
+            return mMediaPlayer.getLength();
         }
         return 0;
     }

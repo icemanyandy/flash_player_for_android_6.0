@@ -16,13 +16,21 @@ allprojects {
 apply plugin: 'android'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'net.qiujuer.genius:blur:2.0.0-beta2'
     compile 'com.android.support:support-annotations:23.1.1'
+    compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
     compileSdkVersion 23
     buildToolsVersion "25.0.2"
+
+
+    defaultConfig {
+        ndk {
+             abiFilters "armeabi-v7a"
+        }
+    }
 
     sourceSets {
         main {
