@@ -8,12 +8,9 @@ import android.widget.Toast;
 import org.videolan.vlc.VlcVideoView;
 
 public class FullscreenVlcPlayer extends Activity {
-
     private String urlToStream;
     private VlcVideoView vlcVideoView;
-
     private float rate = 1.0f;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +26,8 @@ public class FullscreenVlcPlayer extends Activity {
                 if (rate >= 5.f) {
                     rate = 0.1f;
                 }
-                vlcVideoView.setRate(rate);
-                Toast.makeText(FullscreenVlcPlayer.this,"速度："+rate,Toast.LENGTH_SHORT).show();
+                vlcVideoView.setPlaybackSpeedMedia(rate);
+                Toast.makeText(FullscreenVlcPlayer.this, "速度：" + rate, Toast.LENGTH_SHORT).show();
             }
         });
     }

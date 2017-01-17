@@ -83,14 +83,6 @@ public class VlcVideoView extends TextureView implements MediaPlayerControl, Tex
         videoMediaLogic.startPlay(path);
     }
 
-    public void setRate(float rate){
-        videoMediaLogic.setRate(rate);
-    }
-
-    public float getRate(){
-        return videoMediaLogic.getRate();
-    }
-
     public void saveState() {
         videoMediaLogic.saveState();
     }
