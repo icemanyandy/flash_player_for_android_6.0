@@ -18,22 +18,22 @@ import net.qiujuer.genius.blur.StackBlur;
 
 import org.videolan.vlc.VlcVideoView;
 
-import java.lang.reflect.Field;
 
 public class FullscreenVlcPlayer extends Activity implements View.OnClickListener{
     private static final int SCALE_FACTOR = 4;
 
-    private String urlToStream;
+ public class FullscreenVlcPlayer extends Activity {
+     private String urlToStream;
     private String urlImage;
     private VlcVideoView vlcVideoView;
     private float rate = 1.0f;
-    private Bitmap mBitmap;
+     private Bitmap mBitmap;
     private Bitmap mCompressBitmap;
     ImageView mImageBlur;
     ImageView mImageOrg;
 
     ValueAnimator animator;
-    @Override
+      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle b = getIntent().getExtras();
@@ -90,7 +90,9 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
+                 vlcVideoView.setPlaybackSpeedMedia(rate);
+                Toast.makeText(FullscreenVlcPlayer.this, "速度：" + rate, Toast.LENGTH_SHORT).show();
+             }
         });
         thread.setDaemon(true);
         thread.start();
