@@ -17,12 +17,18 @@ allprojects {
 apply plugin: 'android'
 
 dependencies {
+    compile project(':vlc_sample')
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
     compileSdkVersion 22
     buildToolsVersion "24.0.2"
+    defaultConfig {
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
 
     sourceSets {
         main {

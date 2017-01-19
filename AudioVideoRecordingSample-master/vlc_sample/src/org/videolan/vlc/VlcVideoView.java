@@ -223,6 +223,9 @@ public class VlcVideoView extends TextureView implements MediaPlayerControl, Tex
 
         int viewWidth = getWidth();
         int viewHeight = getHeight();
+
+        videoWidth = viewWidth;
+        viewHeight = videoHeight;
         double aspectRatio = (double) videoHeight / (double) videoWidth;
 
         int newWidth, newHeight;

@@ -13,7 +13,7 @@ allprojects {
         jcenter()
     }
 }
-apply plugin: 'android'
+apply plugin: 'com.android.library'
 
 dependencies {
     compile 'net.qiujuer.genius:blur:2.0.0-beta2'

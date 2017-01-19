@@ -12,68 +12,114 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import net.qiujuer.genius.blur.StackBlur;
 
 import org.videolan.vlc.VlcVideoView;
+import org.videolan.vlc.listener.MediaListenerEvent;
+
+import java.lang.reflect.Field;
 
 
-public class FullscreenVlcPlayer extends Activity implements View.OnClickListener{
+public class FullscreenVlcPlayer extends Activity implements View.OnClickListener {
     private static final int SCALE_FACTOR = 4;
 
- public class FullscreenVlcPlayer extends Activity {
-     private String urlToStream;
+    private String urlToStream;
     private String urlImage;
     private VlcVideoView vlcVideoView;
     private float rate = 1.0f;
-     private Bitmap mBitmap;
+    private Bitmap mBitmap;
     private Bitmap mCompressBitmap;
     ImageView mImageBlur;
     ImageView mImageOrg;
-
     ValueAnimator animator;
-      @Override
+    private boolean isBlured = false;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle b = getIntent().getExtras();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         urlToStream = b.getString("url", null);
-        urlImage = b.getString("img",null);
+        urlImage = b.getString("img", null);
         setContentView(R.layout.activity_fullscreen_vlc_player);
         vlcVideoView = (VlcVideoView) findViewById(R.id.vlc_surface);
         vlcVideoView.setLoop(false);
 
         mImageBlur = (ImageView) this.findViewById(R.id.img_blur);
         mImageOrg = (ImageView) this.findViewById(R.id.img_org);
-        vlcVideoView.setOnClickListener(this);
-        mImageBlur.setOnClickListener(this);
+        //vlcVideoView.setOnClickListener(this);
+        //mImageBlur.setOnClickListener(this);
         mImageOrg.setOnClickListener(this);
         initBlur();
+        vlcVideoView.setMediaListenerEvent(new MediaListenerEvent() {
+
+            @Override
+            public void eventBuffing(float buffing, boolean show) {
+
+            }
+
+            @Override
+            public void eventPlayInit(boolean openClose) {
+
+            }
+
+            @Override
+            public void eventStop(boolean isPlayError) {
+                initA(true);
+            }
+
+            @Override
+            public void eventError(int error, boolean show) {
+
+            }
+
+            @Override
+            public void eventPlay(boolean isPlaying) {
+
+            }
+        });
     }
 
 
-    private void initA(final boolean dismiss){
-        if(animator != null){
+    private void initA(final boolean showcover) {
+        if (animator != null) {
             animator.cancel();
             animator = null;
         }
-        if(dismiss) {
+        if (showcover) {
             animator = ValueAnimator.ofFloat(0, 1f);
-        }else{
-            animator = ValueAnimator.ofFloat(1, 0f);
+        } else {
+            animator = ValueAnimator.ofFloat(0, 1f);//隐藏
         }
+        animator.setInterpolator(new DecelerateInterpolator());
         animator.setDuration(800);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 Float frame = (Float) animation.getAnimatedValue();
-                mImageOrg.setAlpha(frame);
-                mImageBlur.setAlpha(frame);
+                if (showcover) {
+                    mImageOrg.setAlpha(frame);
+                    mImageBlur.setAlpha(Math.abs(2 * (1 - frame)));
+                    mImageBlur.setPivotX(mImageBlur.getWidth() / 2);
+                    mImageBlur.setPivotY(mImageBlur.getHeight() / 2);
+                    mImageBlur.setScaleX((1.25f - frame / 8f));
+                    mImageBlur.setScaleY((1.25f - frame / 8f));
+                } else {
+                    mImageOrg.setAlpha(1 - frame);
+                    mImageBlur.setAlpha(Math.abs(frame <= 0.5f ? 2 * frame : 2 - 2 * frame));
+
+                    mImageBlur.setAlpha(Math.abs(2 * (1 - frame)));
+                    mImageBlur.setPivotX(mImageBlur.getWidth() / 2);
+                    mImageBlur.setPivotY(mImageBlur.getHeight() / 2);
+                    mImageBlur.setScaleX((1f + frame / 8f));
+                    mImageBlur.setScaleY((1f +frame / 8f));
+                }
             }
         });
-
         animator.start();
     }
 
@@ -83,25 +129,21 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
             @Override
             public void run() {
                 try {
-                    final StringBuilder sb = new StringBuilder();
-                    sb.append("模糊耗时(ms):  ");
-                    sb.append(blur(1)).append("   ");
-                    Log.e("yangdi", "消费时间 " + sb.toString());
+                    String time = "" + blur(1);
+                    Log.e("yangdi", "消费时间 " + time);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                 vlcVideoView.setPlaybackSpeedMedia(rate);
-                Toast.makeText(FullscreenVlcPlayer.this, "速度：" + rate, Toast.LENGTH_SHORT).show();
-             }
+            }
         });
         thread.setDaemon(true);
         thread.start();
     }
 
-    private void initBlur(){
-        if(TextUtils.isEmpty(urlImage)) {
+    private void initBlur() {
+        if (TextUtils.isEmpty(urlImage)) {
             mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.imgbk, getBitmapOptions(this));
-        }else{
+        } else {
             mBitmap = BitmapFactory.decodeFile(urlImage, getBitmapOptions(this));
         }
         mImageOrg.setImageBitmap(mBitmap);
@@ -115,20 +157,11 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
     }
 
     private long blur(int type) {
-
-
         long startMs = System.currentTimeMillis();
 
         // Is Compress
         float radius = 20;
         Bitmap overlay = mCompressBitmap;
-      /*
-      if (mCompress) {
-            radius = 3;
-            overlay = mCompressBitmap;
-        }
-     */
-        // Java
         if (type == 1)
             overlay = StackBlur.blur(overlay, (int) radius, false);
             // Bitmap JNI Native
@@ -138,12 +171,11 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
         else if (type == 3)
             overlay = StackBlur.blurNativelyPixels(overlay, (int) radius, false);
 
-        // Show
-        //showDrawable(view, overlay);
-        final  Bitmap overlayT = overlay;
+        final Bitmap overlayT = overlay;
         mImageBlur.post(new Runnable() {
             @Override
             public void run() {
+                isBlured = true;
                 mImageBlur.setImageBitmap(overlayT);
                 initA(false);
                 vlcVideoView.startPlay(urlToStream);
@@ -156,22 +188,17 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
     public void onBackPressed() {
         vlcVideoView.onStop();
         vlcVideoView = null;
-        if(mCompressBitmap != null && !mCompressBitmap.isRecycled()){
+        if (mCompressBitmap != null && !mCompressBitmap.isRecycled()) {
             mCompressBitmap.recycle();
             mCompressBitmap = null;
         }
-        if(mBitmap != null && !mBitmap.isRecycled()){
+        if (mBitmap != null && !mBitmap.isRecycled()) {
             mBitmap.recycle();
             mBitmap = null;
         }
         super.onBackPressed();
     }
 
-    /**
-     * 获取优化的BitmapFactory.Options
-     * @param context
-     * @return
-     */
     private static BitmapFactory.Options getBitmapOptions(Context context) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = true;
@@ -203,11 +230,16 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        if(vlcVideoView.isPlaying()){
+        if (vlcVideoView.isPlaying()) {
             vlcVideoView.pause();
             initA(true);
-        }else {
-            applyBlur();
+        } else {
+            if (isBlured) {
+                initA(false);
+                vlcVideoView.startPlay(urlToStream);
+            } else {
+                applyBlur();
+            }
         }
     }
 }

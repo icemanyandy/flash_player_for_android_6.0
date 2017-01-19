@@ -23,7 +23,6 @@ package com.serenegiant.audiovideosample;
 */
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,6 +38,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.wass08.vlcsimpleplayer.FullscreenVlcPlayer;
 
 public class LivePhotosActivity extends Activity {
 	GridView mGridView;
@@ -66,11 +67,11 @@ public class LivePhotosActivity extends Activity {
 								dddd.dismiss();
 								if(v.getId() ==  R.id.btn_take_photo){
 									Intent i=new Intent();
-									ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");  
+									i.setClass(LivePhotosActivity.this,FullscreenVlcPlayer.class);
+									//ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");
 									i.putExtra("url", mLivePhotoAdapter.getVideoPath(position));
 									i.putExtra("img", mLivePhotoAdapter.getImagePath(position));
-									i.setComponent(com);  
-									startActivity(i);
+ 									startActivity(i);
 								}
 							}
 						});
@@ -108,7 +109,7 @@ public class LivePhotosActivity extends Activity {
 			TextView tipsv = (TextView) mMenuView.findViewById(R.id.textView_tips);
 			if (!TextUtils.isEmpty(currentPath)){
 				tipsv.setText(currentPath);
-				this.setHeight(dip2px(context, 220));
+				this.setHeight(dip2px(context, 230));
 			}else{
 				this.setHeight(dip2px(context, 200));
 			}
