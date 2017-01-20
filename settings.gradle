@@ -1,2 +1,1 @@
-include ':vlc_sample'
-include ':AudioVideoRecordingSample-master'
+include ':vlc_sample', ':lock-main', ':VideoRecord'

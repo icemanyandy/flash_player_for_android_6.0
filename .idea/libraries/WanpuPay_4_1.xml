@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="WanpuPay_4.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lock-main/libs/WanpuPay_4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

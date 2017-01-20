@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="stickylistheaders_lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/VideoRecord/libs/stickylistheaders_lib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

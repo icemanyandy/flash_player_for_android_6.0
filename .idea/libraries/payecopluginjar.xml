@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="payecopluginjar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lock-main/libs/payecopluginjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
