@@ -20,7 +20,7 @@
         android:layout_marginBottom="20dp"
         android:background="@null"
         android:scaleType="fitXY"
-        android:src="@android:drawable/ic_menu_camera" />
+        android:src="@drawable/record_begin" />
 
     <ImageButton
         android:id="@+id/record_menu"
@@ -52,7 +52,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:text="please wait a moment"
+        android:text="请等待"
         android:visibility="gone"
         android:textColor="#f5ffffff" />
 

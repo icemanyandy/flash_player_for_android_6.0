@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:orientation="vertical" >
+    android:background="@drawable/popwindow_circle_background"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/pop_layout"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_take_photo"
@@ -19,7 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
-            android:layout_marginTop="20dip"
+            android:layout_marginTop="15dip"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/popwindow_button_background"
             android:text="预览"
             android:textStyle="bold" />
 
@@ -29,31 +33,61 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
-            android:layout_marginTop="5dip"
+            android:layout_marginTop="10dip"
             android:text="设定"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/popwindow_button_background"
             android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/textView_tips"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dip"
+            android:layout_marginLeft="23dip"
             android:layout_marginRight="20dip"
-            android:layout_marginTop="2dp"
-            android:textSize="10dp"
+            android:layout_marginTop="8dp"
             android:maxLines="2"
             android:text="dd"
-            android:id="@+id/textView_tips"
-            />
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dip"
-            android:layout_marginLeft="20dip"
-            android:layout_marginRight="20dip"
-            android:layout_marginTop="15dip"
-            android:text="取消"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
+            android:textColor="#f0009b72"
+            android:textSize="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                 android:background="@drawable/popwindow_button_background"
+                android:text="删除"
+                android:textColor="#C0ff4444"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="10dip"
+                android:text="取消"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/popwindow_button_background"
+                 android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

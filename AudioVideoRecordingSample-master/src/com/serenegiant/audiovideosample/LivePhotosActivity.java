@@ -32,14 +32,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wass08.vlcsimpleplayer.FullscreenVlcPlayer;
+
+import java.io.File;
 
 public class LivePhotosActivity extends Activity {
 	GridView mGridView;
@@ -72,12 +76,31 @@ public class LivePhotosActivity extends Activity {
 									i.putExtra("url", mLivePhotoAdapter.getVideoPath(position));
 									i.putExtra("img", mLivePhotoAdapter.getImagePath(position));
  									startActivity(i);
+								}else if(v.getId() ==  R.id.btn_delete) {
+									boolean ret = true;
+									File file = new File(mLivePhotoAdapter.getVideoPath(position));
+									if (file.isFile() && file.exists()) {
+										ret &= file.delete();
+									}
+									file = new File(mLivePhotoAdapter.getImagePath(position));
+									if (file.isFile() && file.exists()) {
+										ret &= file.delete();
+									}
+									mLivePhotoAdapter.loadImageList();
+									mLivePhotoAdapter.notifyDataSetChanged();
+									Toast.makeText(LivePhotosActivity.this,"删除"+ (ret?"成功":"失败"),Toast.LENGTH_SHORT).show();
 								}
 							}
 						});
 				    dddd = menuWindow;
+				AlphaAnimation backAlpha = new AlphaAnimation(1.f,0.4f);
+				backAlpha.setDuration(300);
+				backAlpha.setFillAfter(true);
+				LivePhotosActivity.this.findViewById(R.id.container).startAnimation(backAlpha);
+
 				menuWindow.showAtLocation(LivePhotosActivity.this.findViewById(R.id.container),
 						Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+
 			}
 		});
 	}
@@ -90,7 +113,7 @@ public class LivePhotosActivity extends Activity {
 
 	public class SelectPicPopupWindow extends PopupWindow {
 
-		private Button btn_take_photo, btn_pick_photo, btn_cancel;
+		private Button btn_take_photo, btn_pick_photo, btn_cancel,btn_delete;
 		private View mMenuView;
 
 		public SelectPicPopupWindow(Activity context, OnClickListener itemsOnClick) {
@@ -99,6 +122,7 @@ public class LivePhotosActivity extends Activity {
 			mMenuView = inflater.inflate(R.layout.livephoto_pop_menu, null);
 			btn_take_photo = (Button) mMenuView.findViewById(R.id.btn_take_photo);
 			btn_pick_photo = (Button) mMenuView.findViewById(R.id.btn_pick_photo);
+			btn_delete = (Button) mMenuView.findViewById(R.id.btn_delete);
 			btn_cancel = (Button) mMenuView.findViewById(R.id.btn_cancel);
 			btn_cancel.setOnClickListener(new OnClickListener() {
 
@@ -109,15 +133,17 @@ public class LivePhotosActivity extends Activity {
 			TextView tipsv = (TextView) mMenuView.findViewById(R.id.textView_tips);
 			if (!TextUtils.isEmpty(currentPath)){
 				tipsv.setText(currentPath);
-				this.setHeight(dip2px(context, 230));
-			}else{
 				this.setHeight(dip2px(context, 200));
+			}else{
+				this.setHeight(dip2px(context, 180));
 			}
 			// 设置按钮监听
 			btn_pick_photo.setOnClickListener(itemsOnClick);
 			btn_take_photo.setOnClickListener(itemsOnClick);
+			btn_delete.setOnClickListener(itemsOnClick);
 			// 设置SelectPicPopupWindow的View
 			this.setContentView(mMenuView);
+			this.setBackgroundDrawable(null);
 			// 设置SelectPicPopupWindow弹出窗体的宽
 			this.setWidth(LayoutParams.FILL_PARENT);
 			// 设置SelectPicPopupWindow弹出窗体的高
@@ -125,9 +151,18 @@ public class LivePhotosActivity extends Activity {
 			this.setFocusable(true);
 			// 设置SelectPicPopupWindow弹出窗体动画效果
 			this.setOutsideTouchable(false);
+			this.setOnDismissListener(new OnDismissListener() {
+				@Override
+				public void onDismiss() {
+					AlphaAnimation backAlpha = new AlphaAnimation(0.4f,1f);
+					backAlpha.setDuration(300);
+					backAlpha.setFillAfter(true);
+					LivePhotosActivity.this.findViewById(R.id.container).startAnimation(backAlpha);
+				}
+			});
 		}
 
-	}
+ 	}
 
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;

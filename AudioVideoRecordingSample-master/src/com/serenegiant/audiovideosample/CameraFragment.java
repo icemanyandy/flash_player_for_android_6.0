@@ -22,14 +22,11 @@ package com.serenegiant.audiovideosample;
  * All files in the folder are under this Apache License, Version 2.0.
 */
 
-import java.io.IOException;
-
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -40,6 +37,8 @@ import com.serenegiant.encoder.MediaAudioEncoder;
 import com.serenegiant.encoder.MediaEncoder;
 import com.serenegiant.encoder.MediaMuxerWrapper;
 import com.serenegiant.encoder.MediaVideoEncoder;
+
+import java.io.IOException;
 
 public class CameraFragment extends Fragment {
 	private static final boolean DEBUG = false;	// TODO set false on release
@@ -80,8 +79,8 @@ public class CameraFragment extends Fragment {
 		updateScaleModeText();
 		mRecordButton = (ImageButton)rootView.findViewById(R.id.record_button);
 		mRecordButton.setOnClickListener(mOnClickListener);		
-		mRecordButton.setColorFilter(0xd000ffdc);
-		
+		//mRecordButton.setColorFilter(0xd000ffdc);
+		mRecordButton.setImageResource(R.drawable.record_begin);
 		ImageButton record_exit = (ImageButton)rootView.findViewById(R.id.record_exit);
 		record_exit.setOnClickListener(mOnClickListener);		
 		ImageButton record_menu = (ImageButton)rootView.findViewById(R.id.record_menu);
@@ -156,8 +155,13 @@ public class CameraFragment extends Fragment {
 	private void startRecording() {
 		if (DEBUG) Log.v(TAG, "startRecording:");
 		try {
-			mRecordButton.setColorFilter(0xffff0000);	// turn red
+			//mRecordButton.setColorFilter(0xffff0000);	// turn red
+			if(mRecordButton.getVisibility()==View.GONE){
+				Log.e("yangdi","startRecording 点击太快");
+				return;
+			}
 			mRecordButton.setVisibility(View.GONE);
+			mRecordButton.setImageResource(R.drawable.record_doing);
 			mMuxer = new MediaMuxerWrapper(".mp4");	// if you record audio only, ".m4a" is also OK.
 			mCameraView.setMediaMuxerWrapper(mMuxer);
 			if (true) {
@@ -169,6 +173,7 @@ public class CameraFragment extends Fragment {
 				new MediaAudioEncoder(mMuxer, mMediaEncoderListener);
 			}
 			mCameraView.takePhoto();
+			mReadyView.setText("准备中");
 			mReadyView.setVisibility(View.VISIBLE);
 			mReadyView.postDelayed(new Runnable() {
 				
@@ -181,7 +186,8 @@ public class CameraFragment extends Fragment {
 			mMuxer.prepare();
 			mMuxer.startRecording();
 		} catch (final IOException e) {
-			mRecordButton.setColorFilter(0xd000ffdc);
+			//mRecordButton.setColorFilter(0xd000ffdc);
+			mRecordButton.setImageResource(R.drawable.record_begin);
 			Log.e(TAG, "startCapture:", e);
 		}
 	}
@@ -191,12 +197,13 @@ public class CameraFragment extends Fragment {
 	 */
 	private void stopRecording() {
 		if (DEBUG) Log.v(TAG, "stopRecording:mMuxer=" + mMuxer);
-		mRecordButton.setColorFilter(0xd000ffdc);	// return to default color
+		//mRecordButton.setColorFilter(0xd000ffdc);	// return to default color
 		if (mMuxer != null) {
 			mMuxer.stopRecording();
 			mMuxer = null;
 			// you should not wait here
 		}
+		mRecordButton.setImageResource(R.drawable.record_begin);
 	}
 
 	/**

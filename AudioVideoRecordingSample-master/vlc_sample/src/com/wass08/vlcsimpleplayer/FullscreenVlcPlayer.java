@@ -116,7 +116,7 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
                     mImageBlur.setPivotX(mImageBlur.getWidth() / 2);
                     mImageBlur.setPivotY(mImageBlur.getHeight() / 2);
                     mImageBlur.setScaleX((1f + frame / 8f));
-                    mImageBlur.setScaleY((1f +frame / 8f));
+                    mImageBlur.setScaleY((1f + frame / 8f));
                 }
             }
         });
