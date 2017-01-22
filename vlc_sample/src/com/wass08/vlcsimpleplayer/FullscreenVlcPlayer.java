@@ -42,9 +42,20 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         Bundle b = getIntent().getExtras();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+
         urlToStream = b.getString("url", null);
         urlImage = b.getString("img", null);
         setContentView(R.layout.activity_fullscreen_vlc_player);
+
+
+        if (savedInstanceState == null && false ) {//debug LivePhotoFragment
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new LivePhotoFragment()).commit();
+            return;
+        }
+
+
         vlcVideoView = (VlcVideoView) findViewById(R.id.vlc_surface);
         vlcVideoView.setLoop(false);
 

@@ -6,219 +6,23 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="yangdi" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb408ca1-f7da-4e22-a1fa-5cce98485684" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.classpath" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.gradle\2.8\taskArtifacts\cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.gradle\2.8\taskArtifacts\cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.gradle\2.8\taskArtifacts\fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.gradle\2.8\taskArtifacts\fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.gradle\2.8\taskArtifacts\outputFileStates.bin" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.gradle\2.8\taskArtifacts\taskArtifacts.bin" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\copyright\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\gradle.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\libraries\support_annotations_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\libraries\universal_image_loader_1_8_6_with_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\runConfigurations.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.project" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.settings\org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\.settings\org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\AudioVideoRecordingSample-master.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$CameraHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$CameraSurfaceRenderer.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$CameraThread$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$CameraThread$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$CameraThread$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView$CameraThread.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\CameraGLView.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotoAdapter$Holder.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotoAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotosActivity$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotosActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotosActivity$SelectPicPopupWindow$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotosActivity$SelectPicPopupWindow.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\LivePhotosActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\MainActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\audiovideosample\R.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\encoder\MediaAudioEncoder$AudioThread.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\encoder\MediaAudioEncoder.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\encoder\MediaEncoder$MediaEncoderListener.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\encoder\MediaEncoder.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\encoder\MediaMuxerWrapper.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\encoder\MediaVideoEncoder.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\glutils\EGLBase$EglSurface.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\glutils\EGLBase.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\glutils\GLDrawer2D.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\classes\com\serenegiant\glutils\RenderHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\dexedLibs\universal-image-loader-1.8.6-with-sources-5a1d436226322898cf827b310de8a308.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\dexedLibs\universal-image-loader-1.8.6-with-sources-6fc060ec4f0b7bd7fc267f2d84306718.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\dexedLibs\universal-image-loader-1.8.6-with-sources-a5106022d1bb9677086b6105a7a45625.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\jarlist.cache" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\proguard.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\recodvideo.apk" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\res\crunch\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\res\crunch\drawable-xhdpi\record_back.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\res\crunch\drawable-xhdpi\record_exit.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\res\crunch\drawable-xhdpi\record_memu.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\bin\resources.ap_" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gen\com\serenegiant\audiovideosample\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gen\com\serenegiant\audiovideosample\R.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gradle.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gradle\wrapper\gradle-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gradle\wrapper\gradle-wrapper.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gradlew" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\libs\universal-image-loader-1.8.6-with-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\local.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\project.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-hdpi\popwindow_button_background.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-hdpi\popwindow_circle_background.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-xhdpi\record_back.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-xhdpi\record_begin.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-xhdpi\record_doing.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-xhdpi\record_exit.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\drawable-xhdpi\record_memu.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\layout\activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\layout\fragment_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\layout\livephoto_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\layout\livephoto_mainlayout.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\layout\livephoto_pop_menu.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\menu\main.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\values\dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\values\strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\res\values\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\settings.gradle" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\audiovideosample\CameraFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\audiovideosample\CameraGLView.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\audiovideosample\LivePhotoAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\audiovideosample\LivePhotosActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\audiovideosample\MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\encoder\MediaAudioEncoder.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\encoder\MediaEncoder.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\encoder\MediaMuxerWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\encoder\MediaVideoEncoder.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\glutils\EGLBase.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\glutils\GLDrawer2D.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\src\com\serenegiant\glutils\RenderHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\.classpath" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\.project" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\.settings\org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\gradle.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\gdb.setup" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\gdbserver" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libanw.10.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libanw.13.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libanw.14.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libanw.18.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libanw.21.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libc++_shared.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libiomx.10.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libiomx.13.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libiomx.14.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libvlc.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\libs\armeabi-v7a\libvlcjni.so" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\proguard-project.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\project.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-hdpi\ic_action_pause_over_video.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-hdpi\ic_action_play_over_video.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-xxhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\drawable-xxhdpi\imgbk.JPG" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\layout\activity_fullscreen_vlc_player.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\layout\activity_media_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\menu\menu_media_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\values-v11\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\values\attrs.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\values\colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\values\strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\res\values\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\com\wass08\vlcsimpleplayer\FullscreenVlcPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\com\wass08\vlcsimpleplayer\MediaControl.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\AWindow.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\AWindowNativeHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\Dialog.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\IVLCVout.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\LibVLC.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\Media.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\MediaDiscoverer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\MediaList.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\MediaPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\VLCEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\VLCObject.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\media\MediaPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\media\VideoView.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\util\AndroidUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\util\Dumper.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\util\Extensions.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\util\HWDecoderUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\util\MediaBrowser.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\libvlc\util\VLCUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\VlcVideoPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\VlcVideoView.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\listener\MediaListenerEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\listener\MediaPlayerControl.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\listener\VideoSizeChange.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\media\MediaWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\FileUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\LogUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\Logcat.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\MurmurHash.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\Preferences.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\Strings.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\Util.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\VLCInstance.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\VLCOptions.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\VLCRunnable.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\src\org\videolan\vlc\util\WeakHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\AudioVideoRecordingSample-master\vlc_sample\vlc_sample.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\build\intermediates\dex-cache\cache.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/FullscreenVlcPlayer.java" afterPath="$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/FullscreenVlcPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/LivePhotosActivity.java" afterPath="$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/LivePhotosActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VideoRecord/VideoRecord.iml" afterPath="$PROJECT_DIR$/VideoRecord/VideoRecord.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vlc_sample/res/layout/activity_fullscreen_vlc_player.xml" afterPath="$PROJECT_DIR$/vlc_sample/res/layout/activity_fullscreen_vlc_player.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flash_player_for_android_6.0.iml" afterPath="$PROJECT_DIR$/flash_player_for_android_6.0.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vlc_sample/vlc_sample.iml" afterPath="$PROJECT_DIR$/vlc_sample/vlc_sample.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flash_player_for_android_6.0.iws" />
@@ -247,7 +51,43 @@
     <favorites_list name="flash_player_for_android_6.0" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="LockScreenActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/lock/LockScreenActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.152542">
+              <caret line="231" column="39" selection-start-line="231" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7949#8464#0" expanded="true" />
+                <element signature="e#8463#8464#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LivePhotoFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/LivePhotoFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4835729">
+              <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#13034#13035#0" expanded="true" />
+                <element signature="e#13064#13065#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -2798,7 +2638,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0" value="8909338418368" />
+        <entry key="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0" value="8909481855253" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3397,19 +3237,35 @@
         <option value="$PROJECT_DIR$/VideoRecord/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/lock-main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/lock-main/build.gradle" />
         <option value="$PROJECT_DIR$/VideoRecord/build.gradle" />
+        <option value="$PROJECT_DIR$/lock-main/proguard.cfg" />
+        <option value="$PROJECT_DIR$/lock-main/build.gradle" />
+        <option value="$PROJECT_DIR$/lock-main/src/com/softboy/update/UpdateChecker.java" />
+        <option value="$PROJECT_DIR$/vlc_sample/res/layout/activity_fullscreen_vlc_player.xml" />
+        <option value="$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/FullscreenVlcPlayer.java" />
+        <option value="$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/SettingTool.java" />
+        <option value="$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/LivePhotosActivity.java" />
+        <option value="$PROJECT_DIR$/lock-main/res/layout/screen_lock.xml" />
+        <option value="$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/activities/KeyguardActivity.java" />
+        <option value="$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/acdisplay/sbDisplayFragment.java" />
+        <option value="$PROJECT_DIR$/lock-main/src/com/softboy/lock/LockScreenActivity.java" />
+        <option value="$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/LivePhotoFragment.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="NamedScopeManager">
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="width" value="1920" />
+    <option name="height" value="1160" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -3477,7 +3333,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="VideoRecord" />
+              <option name="myItemId" value="vlc_sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3491,7 +3351,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lock-main" />
+              <option name="myItemId" value="vlc_sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vlcsimpleplayer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3518,10 +3386,18 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="8a6961b77ce3" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="DEBUGGABLE_DEVICE" value="xiaomi-redmi_3-8a6961b77ce3" />
+    <property name="DEBUGGABLE_PROCESS" value="com.softboy.screenlocker" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\2016_work\mycode\syncgit\flash_player_for_android_6.0\vlc_sample" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.serenegiant.audiovideosample" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.lock-main">
@@ -3715,76 +3591,88 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1160" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66999" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32973504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25215054" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998006" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.66999" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998006" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25215054" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -3836,14 +3724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/intermediates/bundles/debug/aapt/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48165137">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VideoRecord/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3860,37 +3740,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/LivePhotoAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.785714">
-          <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#993#1001#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lock-main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5504587">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vlc_sample/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28899083">
           <caret line="24" column="24" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61009175">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -3906,16 +3767,373 @@
     <entry file="file://$PROJECT_DIR$/lock-main/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="31" selection-end-column="5" />
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VideoRecord/build.gradle">
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/update/UpdateChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61009175">
-          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1810#1811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/proguard-project.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/proguard.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="15" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/proguard.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/acdisplay/AcDisplayActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22826087">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5031056">
+          <caret line="46" column="58" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9042735">
+          <caret line="152" column="77" selection-start-line="152" selection-start-column="77" selection-end-line="152" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/xposed/OverrideHomeButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42391303">
+          <caret line="54" column="91" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#3602#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/xposed/ImmersiveModeDontPanic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48913044">
+          <caret line="50" column="38" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#2563#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/CameraGLView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="51" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/CameraFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="89" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6237785">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vlc_sample/res/layout/activity_media_selector.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/SettingTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="120" column="23" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vlc_sample/res/layout/activity_fullscreen_vlc_player.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/lock/SettingTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="33" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="33" />
+          <folding>
+            <element signature="e#2285#2286#0" expanded="true" />
+            <element signature="e#2316#2317#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/res/layout/screen_lock.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.666666">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/LivePhotoAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="130" column="44" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lock-main/libs/android-support-v13.jar!/android/support/v4/view/ViewPager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.321428">
+          <caret line="281" column="29" selection-start-line="281" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
+          <folding>
+            <element signature="e#10804#10805#0" expanded="true" />
+            <element signature="e#10840#10841#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/Presenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/LivePhotosActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="75" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/2016/androidsdk/sources/android-23/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="1915" column="27" selection-start-line="1915" selection-start-column="27" selection-end-line="1915" selection-end-column="27" />
+          <folding>
+            <element signature="e#85757#85758#0" expanded="false" />
+            <element signature="e#85811#85812#0" expanded="false" />
+            <element signature="e#205912#205913#0" expanded="false" />
+            <element signature="e#205944#205945#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VideoRecord/src/com/serenegiant/audiovideosample/TakeLivePhotoMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="30" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lock-main/libs/android-support-v13.jar!/android/support/v4/app/FragmentManagerImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13319239">
+          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/res/layout/screen_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.966666">
+          <caret line="69" column="47" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/acdisplay/AcDisplayFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="47" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lock-main/libs/android-support-v13.jar!/android/support/v4/app/FragmentActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33298096">
+          <caret line="586" column="27" selection-start-line="586" selection-start-column="27" selection-end-line="586" selection-end-column="27" />
+          <folding>
+            <element signature="e#20590#20591#0" expanded="true" />
+            <element signature="e#20628#20629#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lock-main/libs/android-support-v13.jar!/android/support/v4/app/FragmentManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.571428">
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/activities/KeyguardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19404517">
+          <caret line="44" column="55" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/2016/androidsdk/sources/android-22/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1887" column="27" selection-start-line="1887" selection-start-column="27" selection-end-line="1887" selection-end-column="27" />
+          <folding>
+            <element signature="e#83888#83889#0" expanded="false" />
+            <element signature="e#83921#83922#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/2016/androidsdk/sources/android-22/android/widget/ArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="284" column="16" selection-start-line="284" selection-start-column="16" selection-end-line="284" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/screenlocker/acdisplay/sbDisplayFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.035713">
+          <caret line="148" column="22" selection-start-line="148" selection-start-column="22" selection-end-line="148" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/FullscreenVlcPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/2016/androidsdk/sources/android-22/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16232" column="37" selection-start-line="16232" selection-start-column="16" selection-end-line="16232" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/2016/androidsdk/sources/android-22/android/graphics/drawable/BitmapDrawable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="132" column="7" selection-start-line="132" selection-start-column="7" selection-end-line="132" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/2016/androidsdk/sources/android-23/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11443" column="16" selection-start-line="11443" selection-start-column="16" selection-end-line="11443" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock-main/src/com/softboy/lock/LockScreenActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.152542">
+          <caret line="231" column="39" selection-start-line="231" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7949#8464#0" expanded="true" />
+            <element signature="e#8463#8464#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vlc_sample/src/com/wass08/vlcsimpleplayer/LivePhotoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4835729">
+          <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#13034#13035#0" expanded="true" />
+            <element signature="e#13064#13065#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
