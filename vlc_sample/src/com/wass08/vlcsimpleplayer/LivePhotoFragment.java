@@ -317,8 +317,9 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
                     vlcVideoView.pause();
                 }
                 if (mImageBlur.getAlpha() >= 0.95f && always) {
-
-                } else {
+                    return;
+                }
+                if(vlcVideoView.isPlaying() || always){
                     initA(true, always);
                 }
             }
@@ -403,6 +404,6 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
     }
 
     public void keepScreenOn(boolean on){
-        vlcVideoView.setKeepScreenOn(on);
+        //vlcVideoView.setKeepScreenOn(on);
     }
 }

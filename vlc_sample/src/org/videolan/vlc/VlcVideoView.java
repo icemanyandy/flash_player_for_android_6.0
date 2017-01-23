@@ -200,7 +200,7 @@ public class VlcVideoView extends TextureView implements MediaPlayerControl, Tex
         if (isInEditMode()) {
             return;
         }
-        setKeepScreenOn(true);
+        //setKeepScreenOn(true);
         if (videoMediaLogic != null)
             videoMediaLogic.onAttachedToWindow(true);
     }
@@ -212,7 +212,7 @@ public class VlcVideoView extends TextureView implements MediaPlayerControl, Tex
         if (isInEditMode()) {
             return;
         }
-        setKeepScreenOn(false);
+        //setKeepScreenOn(false);
         if (videoMediaLogic != null)
             videoMediaLogic.onAttachedToWindow(false);
     }
