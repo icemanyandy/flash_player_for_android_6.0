@@ -50,7 +50,6 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
         vlcVideoView.setLoop(false);
         mImageBlur = (ImageView) rootView.findViewById(R.id.img_blur);
         mImageOrg = (ImageView) rootView.findViewById(R.id.img_org);
-        initBlur();
         vlcVideoView.setMediaListenerEvent(new MediaListenerEvent() {
 
             @Override
@@ -66,6 +65,7 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
             @Override
             public void eventStop(boolean isPlayError) {
                 initA(true);
+                keepScreenOn(false);
             }
 
             @Override
@@ -75,9 +75,11 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
 
             @Override
             public void eventPlay(boolean isPlaying) {
-
+                keepScreenOn(false);
             }
         });
+        initBlur();
+
         //mImageBlur.setOnClickListener(this);
         return rootView;
     }
@@ -121,17 +123,18 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
     private void initA(final boolean showcover) {
         initA(showcover, false);
     }
-    private void initA(final boolean showcover,final boolean alwaysBlur) {
+
+    private void initA(final boolean showcover, final boolean alwaysBlur) {
         if (animator != null) {
             animator.cancel();
             animator = null;
         }
 
-        float oB = mImageOrg.getAlpha() ,oE;
-        float bB = mImageBlur.getAlpha(),bE;
+        float oB = mImageOrg.getAlpha(), oE;
+        float bB = mImageBlur.getAlpha(), bE;
         if (showcover) {
             animator = ValueAnimator.ofFloat(0, 1f);
-         } else {
+        } else {
             animator = ValueAnimator.ofFloat(0, 1f);//隐藏
         }
         animator.setInterpolator(new DecelerateInterpolator());
@@ -163,14 +166,14 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
 
                     if (showcover) {
                         mImageOrg.setAlpha(frame);
-                        mImageBlur.setAlpha(temp>1.0f?1.f:temp);
+                        mImageBlur.setAlpha(temp > 1.0f ? 1.f : temp);
                         mImageBlur.setPivotX(mImageBlur.getWidth() / 2);
                         mImageBlur.setPivotY(mImageBlur.getHeight() / 2);
                         mImageBlur.setScaleX((1.25f - frame / 8f));
                         mImageBlur.setScaleY((1.25f - frame / 8f));
                     } else {
                         mImageOrg.setAlpha(1 - frame);
-                        mImageBlur.setAlpha(temp>1.0f?1.f:temp);
+                        mImageBlur.setAlpha(temp > 1.0f ? 1.f : temp);
 
                         mImageBlur.setPivotX(mImageBlur.getWidth() / 2);
                         mImageBlur.setPivotY(mImageBlur.getHeight() / 2);
@@ -183,13 +186,13 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
         animator.start();
     }
 
-    private void applyBlur(final boolean toPlay,final boolean always) {
+    private void applyBlur(final boolean toPlay, final boolean always, final boolean inner) {
         // Run Thread
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    String time = "" + blur(1,toPlay,always);
+                    String time = "" + blur(1, toPlay, always, inner);
                     Log.e("yangdi", "消费时间 " + time);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -216,9 +219,14 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
 
         mImageOrg.setAlpha(0f);
         mImageBlur.setAlpha(0f);
+        applyBlur(false, false, true);
     }
 
-    private long blur(int type,final boolean toPlay,final boolean always) {
+    private long blur(int type, final boolean toPlay, final boolean always) {
+        return blur(type, toPlay, always, false);
+    }
+
+    private long blur(int type, final boolean toPlay, final boolean always, final boolean inner) {
         long startMs = System.currentTimeMillis();
 
         // Is Compress
@@ -234,18 +242,22 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
             overlay = StackBlur.blurNativelyPixels(overlay, (int) radius, false);
         isBlured = true;
         final Bitmap overlayT = overlay;
-        mImageBlur.post(new Runnable() {
-            @Override
-            public void run() {
-                mImageBlur.setImageBitmap(overlayT);
-                if(toPlay) {
-                    initA(false,always);
-                    vlcVideoView.startPlay(urlToStream);
-                }else{
-                    initA(true, always);
+
+            mImageBlur.post(new Runnable() {
+                @Override
+                public void run() {
+                    mImageBlur.setImageBitmap(overlayT);
+                    if (!inner) {
+                        if (toPlay) {
+                            initA(false, always);
+                            vlcVideoView.startPlay(urlToStream);
+                        } else {
+                            initA(true, always);
+                        }
+                    }
                 }
-            }
-        });
+            });
+
         return System.currentTimeMillis() - startMs;
     }
 
@@ -288,83 +300,91 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
                 initA(false);
                 vlcVideoView.startPlay(urlToStream);
             } else {
-                applyBlur(true, false);
+                applyBlur(true, false, false);
             }
         }
     }
 
     PauseRunnable pauseRunnable = new PauseRunnable();
-    public class PauseRunnable implements Runnable  {
+
+    public class PauseRunnable implements Runnable {
         public boolean always = false;
+
         @Override
         public void run() {
-            if(getActivity() != null && !getActivity().isFinishing()) {
+            if (getActivity() != null && !getActivity().isFinishing()) {
                 if (vlcVideoView.isPlaying()) {
                     vlcVideoView.pause();
                 }
-                if(mImageBlur.getAlpha() >= 0.95f && always){
+                if (mImageBlur.getAlpha() >= 0.95f && always) {
 
-                }else {
+                } else {
                     initA(true, always);
                 }
             }
         }
-    };
+    }
 
-    public class StartRunnable implements Runnable  {
+    ;
+
+    public class StartRunnable implements Runnable {
         public boolean always = false;
+
         @Override
         public void run() {
 
-            if(getActivity() != null && !getActivity().isFinishing()) {
+            if (getActivity() != null && !getActivity().isFinishing()) {
                 if (isBlured) {
-                    initA(false,always);
+                    initA(false, always);
                     vlcVideoView.startPlay(urlToStream);
                 } else {
-                    applyBlur(true, always);
+                    applyBlur(true, always, false);
                 }
             }
         }
-    };
+    }
+
+    ;
 
     StartRunnable startRunnable = new StartRunnable();
-    public void setPlay(boolean play,boolean always) {
+
+    public void setPlay(boolean play, boolean always) {
         //Log.e("yangdi","setPlay +play "+play +" always "+always,new Throwable());
-       Log.e("yangdi","setPlay +play "+play +" always "+always);
+        Log.e("yangdi", "setPlay +play " + play + " always " + always);
 
         if (play) {
             vlcVideoView.removeCallbacks(startRunnable);
             vlcVideoView.removeCallbacks(pauseRunnable);
             startRunnable.always = always;
-            vlcVideoView.postDelayed(startRunnable,200);
+            vlcVideoView.postDelayed(startRunnable, 200);
         } else {
             vlcVideoView.removeCallbacks(startRunnable);
             vlcVideoView.removeCallbacks(pauseRunnable);
             pauseRunnable.always = always;
-            vlcVideoView.postDelayed(pauseRunnable,500);
+            vlcVideoView.postDelayed(pauseRunnable, 500);
         }
     }
 
-    public void justBlur(boolean blur){
-        Log.e("yangdi","  justBlur "+blur);
-        if(blur) {
-            Log.e("yangdi","  justBlur mImageBlur "+mImageBlur.getAlpha());
-             if(mImageBlur.getAlpha() >= 0.95f){
-                 mImageOrg.setAlpha(0.f);
-                 mImageBlur.setAlpha(1.0f);
-                 return;
-             }
-             mImageBlur.postDelayed(new Runnable() {
+    public void justBlur(boolean blur) {
+        Log.e("yangdi", "  justBlur " + blur);
+        if (blur) {
+            Log.e("yangdi", "  justBlur mImageBlur " + mImageBlur.getAlpha());
+            if (mImageBlur.getAlpha() >= 0.95f) {
+                mImageOrg.setAlpha(0.f);
+                mImageBlur.setAlpha(1.0f);
+                return;
+            }
+            mImageBlur.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     //show blur
-                    applyBlur(false, true);
+                    applyBlur(false, true, false);
                 }
             }, 300);
-        }else{
-            Log.e("yangdi","  mImageOrg "+mImageOrg.getAlpha());
+        } else {
+            Log.e("yangdi", "  mImageOrg " + mImageOrg.getAlpha());
 
-            if(mImageBlur.getAlpha() <= 0.5f || mImageOrg.getAlpha() >= 0.95f){
+            if (mImageBlur.getAlpha() <= 0.5f || mImageOrg.getAlpha() >= 0.95f) {
                 mImageBlur.setAlpha(0.0f);
                 mImageOrg.setAlpha(1.f);
                 return;
@@ -374,11 +394,15 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
         }
     }
 
-    public boolean isPlaying(){
+    public boolean isPlaying() {
         return vlcVideoView.isPlaying();
     }
 
-    public Bitmap getBackGroundBitmap(){
+    public Bitmap getBackGroundBitmap() {
         return mBitmap;
+    }
+
+    public void keepScreenOn(boolean on){
+        vlcVideoView.setKeepScreenOn(on);
     }
 }
