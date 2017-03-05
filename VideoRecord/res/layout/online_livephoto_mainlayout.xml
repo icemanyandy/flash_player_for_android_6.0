@@ -39,7 +39,7 @@
         android:gravity="center"
         android:paddingBottom="6dip"
         android:paddingTop="6dip"
-        android:text="本地LivePhoto"
+        android:text="在线资源"
         android:textColor="#3d3d3d"
         android:textSize="18sp" />
 
@@ -54,11 +54,17 @@
         android:scaleType="center"
         android:src="@drawable/record_back" />
 
+    <com.serenegiant.online.AutoLineLayout
+        android:id="@+id/toplables"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <GridView
         android:id="@+id/gridview_photos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/toplables"
         android:layout_marginBottom="3dp"
         android:cacheColorHint="#00000000"
         android:gravity="center"
@@ -89,7 +95,9 @@
         android:paddingLeft="10dp"
         android:paddingRight="15dp"
         android:paddingTop="6dip"
-        android:text="在线资源"
+        android:text="已经下载"
         android:textColor="#008001"
         android:textSize="18sp" />
-</RelativeLayout>
+
+
+ </RelativeLayout>

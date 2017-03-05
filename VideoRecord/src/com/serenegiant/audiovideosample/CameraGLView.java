@@ -53,6 +53,7 @@ import android.view.Display;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.serenegiant.encoder.MediaMuxerWrapper;
 import com.serenegiant.encoder.MediaVideoEncoder;
@@ -516,6 +517,8 @@ public final class CameraGLView extends GLSurfaceView {
 		}
 
 		public void takePhoto() {
+			if(mCamera == null)
+				return;
 			mCamera.takePicture(null, null, new PictureCallback() {
 
 				@Override
@@ -660,6 +663,7 @@ public final class CameraGLView extends GLSurfaceView {
 					mCamera.setPreviewTexture(st);
 				} catch (final IOException e) {
 					Log.e(TAG, "startPreview:", e);
+					Toast.makeText(getContext(),"打开相机失败，请开启权限",Toast.LENGTH_SHORT).show();
 					if (mCamera != null) {
 						mCamera.release();
 						mCamera = null;
