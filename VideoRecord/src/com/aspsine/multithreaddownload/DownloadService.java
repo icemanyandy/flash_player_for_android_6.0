@@ -156,7 +156,7 @@ public class DownloadService extends Service {
         @Override
         public void onStarted() {
             L.i(TAG, "onStart()");
-            mBuilder.setSmallIcon(R.drawable.ic_launcher)
+            mBuilder.setSmallIcon(R.drawable.ic_launcher_download)
                     .setContentTitle(mRequestDownloadInfo.getName())
                     .setContentText("Init Download")
                     .setProgress(100, 0, true)
