@@ -74,6 +74,8 @@
         <activity android:name="com.nhaarman.listviewanimations.example.AnimateDismissActivity"></activity>
         <activity android:name="com.nhaarman.listviewanimations.example.MyListActivity"></activity>
         <activity android:name="com.nhaarman.listviewanimations.example.SwipeDismissActivity"></activity>
+        <service android:name="com.aspsine.multithreaddownload.DownloadService"/>
+
     </application>
 
 </manifest>

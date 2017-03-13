@@ -17,7 +17,6 @@ public class RequestDownloadInfo  implements Serializable {
 
     private String name;
     private String packageName;
-    private String id;
     private String image;
     private String url;
     private int progress;
@@ -27,10 +26,8 @@ public class RequestDownloadInfo  implements Serializable {
     public RequestDownloadInfo() {
     }
 
-    public RequestDownloadInfo(String id, String name, String image, String url) {
+    public RequestDownloadInfo(String name, String url) {
         this.name = name;
-        this.id = id;
-        this.image = image;
         this.url = url;
     }
 
@@ -48,22 +45,6 @@ public class RequestDownloadInfo  implements Serializable {
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getUrl() {

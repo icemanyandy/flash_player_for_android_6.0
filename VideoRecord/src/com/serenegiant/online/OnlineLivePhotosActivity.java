@@ -2,10 +2,14 @@ package com.serenegiant.online;
 
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +26,8 @@ import android.widget.TextView;
 
 import com.aspsine.multithreaddownload.DownloadConfiguration;
 import com.aspsine.multithreaddownload.DownloadManager;
+import com.aspsine.multithreaddownload.DownloadService;
+import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.serenegiant.audiovideosample.LivePhotosActivity;
 import com.serenegiant.audiovideosample.R;
 
@@ -32,10 +38,13 @@ public class OnlineLivePhotosActivity extends Activity {
     String currentPath;
     ParseOnlineString mParseOnlineTool;
     AutoLineLayout mAutoLineLayout;
+    private DownloadReceiver mReceiver;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.online_livephoto_mainlayout);
+        initDownloader();
         String testString = ParseOnlineString.getTestAssertFile(this);
         mParseOnlineTool = new ParseOnlineString(testString);
 
@@ -89,6 +98,20 @@ public class OnlineLivePhotosActivity extends Activity {
                 mAutoLineLayout.addView(viewGroup);
             }
         }
+
+   /*      for (AppInfo info : mAppInfos) {
+            DownloadInfo downloadInfo = DownloadManager.getInstance().getDownloadInfo(info.getUrl());
+            if (downloadInfo != null) {
+                info.setProgress(downloadInfo.getProgress());
+                info.setDownloadPerSize(Utils.getDownloadPerSize(downloadInfo.getFinished(), downloadInfo.getLength()));
+                info.setStatus(AppInfo.STATUS_PAUSED);
+            }
+        }
+        */
+        RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo();
+        String downloadUrl = "http://dldir1.qq.com/qqmi/TencentVideo_V4.1.0.8897_51.apk";
+        requestDownloadInfo = new RequestDownloadInfo( "testapkdownload",downloadUrl);
+        final RequestDownloadInfo finalRequestDownloadInfo = requestDownloadInfo;
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -99,7 +122,7 @@ public class OnlineLivePhotosActivity extends Activity {
                     public void onClick(View v) {
                         dddd.dismiss();
                         if (v.getId() == R.id.btn_download) {
-
+                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, "testapkdownload", finalRequestDownloadInfo);
                         }else if(v.getId() == R.id.btn_preview){
 
                         }
@@ -116,6 +139,33 @@ public class OnlineLivePhotosActivity extends Activity {
             }
         });
     }
+
+    private void register() {
+        mReceiver = new DownloadReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(DownloadService.ACTION_DOWNLOAD_BROAD_CAST);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, intentFilter);
+    }
+
+    private void unRegister() {
+        if (mReceiver != null) {
+            LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver);
+        }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        register();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unRegister();
+    }
+
 
     public void selectLable(AutoLineLayout autoLayout, String text) {
         int childcount = autoLayout.getChildCount();
@@ -198,5 +248,55 @@ public class OnlineLivePhotosActivity extends Activity {
         configuration.setMaxThreadNum(6);
         configuration.setThreadNum(3);
         DownloadManager.getInstance().init(getApplicationContext(), configuration);
+    }
+
+
+    class DownloadReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (action == null || !action.equals(DownloadService.ACTION_DOWNLOAD_BROAD_CAST)) {
+                return;
+            }
+             final RequestDownloadInfo tmpInfo = (RequestDownloadInfo) intent.getSerializableExtra(DownloadService.EXTRA_APP_INFO);
+
+            final RequestDownloadInfo appInfo = tmpInfo;
+            final int status = tmpInfo.getStatus();
+            Log.e("yangdi","DownloadReceiver status "+status);
+            switch (status) {
+                case RequestDownloadInfo.STATUS_CONNECTING:
+                    appInfo.setStatus(RequestDownloadInfo.STATUS_CONNECTING);
+                    break;
+
+                case RequestDownloadInfo.STATUS_DOWNLOADING:
+                    appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOADING);
+                    appInfo.setProgress(tmpInfo.getProgress());
+                    appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
+
+                    break;
+                case RequestDownloadInfo.STATUS_COMPLETE:
+                    appInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
+                    appInfo.setProgress(tmpInfo.getProgress());
+                    appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
+
+                    break;
+
+                case RequestDownloadInfo.STATUS_PAUSED:
+                    appInfo.setStatus(RequestDownloadInfo.STATUS_PAUSED);
+
+                    break;
+                case RequestDownloadInfo.STATUS_NOT_DOWNLOAD:
+                    appInfo.setStatus(RequestDownloadInfo.STATUS_NOT_DOWNLOAD);
+                    appInfo.setProgress(tmpInfo.getProgress());
+                    appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
+                    break;
+                case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
+                    appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
+                    appInfo.setDownloadPerSize("");
+
+                    break;
+            }
+        }
     }
 }
