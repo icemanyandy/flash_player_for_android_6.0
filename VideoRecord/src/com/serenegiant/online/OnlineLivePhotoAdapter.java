@@ -31,6 +31,10 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 
  	}
 
+	public void setList(List<OnlineLivePhotoItem> list){
+		itemList = list;
+	}
+
 	public static void initImageLoader(Context context) {
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
 				.threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
@@ -71,6 +75,7 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 			holder = (Holder) convertView.getTag();
 		}
   		holder.tv.setText(itemList.get(position).title);
+		holder.img.setImageResource(R.drawable.default_pic_nine);
 		ImageLoader.getInstance().displayImage(itemList.get(position).picUrl, holder.img);
 		return convertView;
 	}

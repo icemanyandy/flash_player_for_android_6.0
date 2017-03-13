@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_take_photo"
+            android:id="@+id/btn_download"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
@@ -24,33 +24,22 @@
             android:textSize="14dp"
             android:textColor="@android:color/white"
             android:background="@drawable/popwindow_button_background"
-            android:text="预览"
+            android:text="下载"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_pick_photo"
+            android:id="@+id/btn_preview"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
             android:layout_marginTop="10dip"
-            android:text="设定"
+            android:text="预览"
             android:textSize="14dp"
             android:textColor="@android:color/white"
             android:background="@drawable/popwindow_button_background"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView_tips"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="23dip"
-            android:layout_marginRight="20dip"
-            android:layout_marginTop="8dp"
-            android:maxLines="2"
-            android:text="dd"
-            android:textColor="#f0009b72"
-            android:textSize="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,29 +47,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_delete"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dip"
-                android:layout_marginLeft="20dip"
-                android:layout_marginRight="5dip"
-                android:layout_marginTop="10dip"
-                android:layout_weight="1"
-                android:textSize="14dp"
-                 android:background="@drawable/popwindow_button_background"
-                android:text="删除"
-                android:textColor="#C0ff4444"
-                android:textStyle="bold" />
-
-
-            <Button
                 android:id="@+id/btn_cancel"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dip"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="20dip"
-                android:layout_marginTop="10dip"
+                android:layout_marginLeft="22dip"
+                android:layout_marginRight="22dip"
+                android:layout_marginTop="25dip"
                 android:text="取消"
                 android:layout_weight="1"
                 android:textSize="14dp"

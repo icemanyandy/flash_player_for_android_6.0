@@ -93,6 +93,7 @@ public class AutoLineLayout extends ViewGroup {
 
 		if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.UNSPECIFIED) {
 			height = ypos + lineheightTmp;
+			height+=getPaddingBottom();
 
 		} else if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.AT_MOST) {
 			if (ypos + lineheightTmp < height) {

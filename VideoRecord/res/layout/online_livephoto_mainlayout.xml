@@ -27,7 +27,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#efefef">
+    android:background="#ffefefef">
 
     <TextView
         android:id="@+id/title"
@@ -57,6 +57,10 @@
     <com.serenegiant.online.AutoLineLayout
         android:id="@+id/toplables"
         android:layout_below="@+id/title"
+        android:paddingTop="5dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
