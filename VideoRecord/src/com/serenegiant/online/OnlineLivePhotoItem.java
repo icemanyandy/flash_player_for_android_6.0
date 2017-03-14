@@ -13,6 +13,11 @@ public  class OnlineLivePhotoItem implements Comparable {
     public String picUrl;//图片
     public String videoUrl;//下载地址
     public String tips;//说明
+
+
+    //内部更新
+    public int download_progress = 0;
+    public int download_state = -1;
     public OnlineLivePhotoItem(String sp[]){
         if(sp == null||sp.length<5)
             return;

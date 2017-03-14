@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -23,16 +24,22 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 	List<String> mPhotoImagePath = new ArrayList<String>();
 	private LayoutInflater inflater = null;
 	List<OnlineLivePhotoItem> itemList;
+	boolean useDefaultImg = false;
 	public OnlineLivePhotoAdapter(Context context,List<OnlineLivePhotoItem> list) {
 		mContext = context;
 		inflater = LayoutInflater.from(context);
 		initImageLoader(context);
 		itemList = list;
-
+		useDefaultImg = true;
  	}
 
 	public void setList(List<OnlineLivePhotoItem> list){
 		itemList = list;
+		useDefaultImg = true;
+	}
+
+	public List<OnlineLivePhotoItem> getItemList(){
+		return itemList;
 	}
 
 	public static void initImageLoader(Context context) {
@@ -53,8 +60,10 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int arg0) {
-		return arg0;
+	public OnlineLivePhotoItem getItem(int arg0) {
+		 if(itemList != null && arg0<itemList.size())
+			 return itemList.get(arg0);
+		return  null;
 	}
 
 	@Override
@@ -70,19 +79,29 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 			holder = new Holder();
 			holder.tv = (TextView) convertView.findViewById(R.id.itemName);
 			holder.img = (ImageView) convertView.findViewById(R.id.itemImage);
+			holder.progressBar = (ProgressBar) convertView.findViewById(R.id.itemProgress);
 			convertView.setTag(holder);
 		} else {
 			holder = (Holder) convertView.getTag();
 		}
-  		holder.tv.setText(itemList.get(position).title);
-		holder.img.setImageResource(R.drawable.default_pic_nine);
-		ImageLoader.getInstance().displayImage(itemList.get(position).picUrl, holder.img);
+		OnlineLivePhotoItem item = itemList.get(position);
+  		holder.tv.setText(item.title);
+		holder.progressBar.setProgress(item.download_progress);
+
+		if(useDefaultImg) {
+			holder.img.setImageResource(R.drawable.default_pic_nine);
+		}
+		ImageLoader.getInstance().displayImage(item.picUrl, holder.img);
+		if(position == getCount()-1){
+			useDefaultImg = false;
+		}
 		return convertView;
 	}
 
 	private class Holder {
 		TextView tv = null;
 		ImageView img = null;
+		ProgressBar progressBar;
 	}
 
 }

@@ -31,6 +31,8 @@ import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.serenegiant.audiovideosample.LivePhotosActivity;
 import com.serenegiant.audiovideosample.R;
 
+import java.util.List;
+
 public class OnlineLivePhotosActivity extends Activity {
     GridView mGridView;
     OnlineLivePhotoAdapter mLivePhotoAdapter;
@@ -108,10 +110,7 @@ public class OnlineLivePhotosActivity extends Activity {
             }
         }
         */
-        RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo();
-        String downloadUrl = "http://dldir1.qq.com/qqmi/TencentVideo_V4.1.0.8897_51.apk";
-        requestDownloadInfo = new RequestDownloadInfo( "testapkdownload",downloadUrl);
-        final RequestDownloadInfo finalRequestDownloadInfo = requestDownloadInfo;
+
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -121,8 +120,12 @@ public class OnlineLivePhotosActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         dddd.dismiss();
+                        OnlineLivePhotoItem livePhotoItem = mLivePhotoAdapter.getItem(position);
                         if (v.getId() == R.id.btn_download) {
-                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, "testapkdownload", finalRequestDownloadInfo);
+                            RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo();
+                            String downloadUrl = livePhotoItem.videoUrl ;//"http://dldir1.qq.com/qqmi/TencentVideo_V4.1.0.8897_51.apk";
+                            requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,downloadUrl);
+                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, "testapkdownload", requestDownloadInfo);
                         }else if(v.getId() == R.id.btn_preview){
 
                         }
@@ -259,14 +262,31 @@ public class OnlineLivePhotosActivity extends Activity {
             if (action == null || !action.equals(DownloadService.ACTION_DOWNLOAD_BROAD_CAST)) {
                 return;
             }
-             final RequestDownloadInfo tmpInfo = (RequestDownloadInfo) intent.getSerializableExtra(DownloadService.EXTRA_APP_INFO);
-
+            final RequestDownloadInfo tmpInfo = (RequestDownloadInfo) intent.getSerializableExtra(DownloadService.EXTRA_APP_INFO);
             final RequestDownloadInfo appInfo = tmpInfo;
             final int status = tmpInfo.getStatus();
             Log.e("yangdi","DownloadReceiver status "+status);
+            if(mLivePhotoAdapter != null) {
+                List<OnlineLivePhotoItem> itemList = mLivePhotoAdapter.getItemList();
+                if(itemList != null) {
+                    for (OnlineLivePhotoItem item : itemList) {
+                        if(appInfo.getUrl().equals(item.videoUrl)){
+                            item.download_state = status;
+                            if(RequestDownloadInfo.STATUS_DOWNLOADING == status)
+                                item.download_progress = tmpInfo.getProgress();
+                            else if(RequestDownloadInfo.STATUS_COMPLETE == status)
+                                item.download_progress = 100;
+                            mLivePhotoAdapter.notifyDataSetInvalidated();
+                            break;
+                        }
+                    }
+                }
+            }
+
             switch (status) {
                 case RequestDownloadInfo.STATUS_CONNECTING:
                     appInfo.setStatus(RequestDownloadInfo.STATUS_CONNECTING);
+
                     break;
 
                 case RequestDownloadInfo.STATUS_DOWNLOADING:
@@ -294,7 +314,6 @@ public class OnlineLivePhotosActivity extends Activity {
                 case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
                     appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
                     appInfo.setDownloadPerSize("");
-
                     break;
             }
         }

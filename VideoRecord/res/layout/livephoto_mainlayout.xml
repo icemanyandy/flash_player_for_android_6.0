@@ -54,10 +54,10 @@
         android:scaleType="center"
         android:src="@drawable/record_back" />
 
-    <GridView
+    <com.serenegiant.glutils.SpringGridView
         android:id="@+id/gridview_photos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/title"
         android:layout_marginBottom="3dp"
         android:cacheColorHint="#00000000"

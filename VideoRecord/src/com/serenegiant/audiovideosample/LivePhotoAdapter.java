@@ -103,7 +103,7 @@ public class LivePhotoAdapter extends BaseAdapter {
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
 				.threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
 				.discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO)
-				.writeDebugLogs() // Remove
+				//.writeDebugLogs() // Remove
 				.build();
 		ImageLoader.getInstance().init(config);
 	}

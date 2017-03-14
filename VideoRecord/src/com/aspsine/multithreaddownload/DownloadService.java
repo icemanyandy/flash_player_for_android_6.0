@@ -43,7 +43,7 @@ public class DownloadService extends Service {
     /**
      * Dir: /Download
      */
-    private File mDownloadDir;
+    private static File mDownloadDir;
 
     private DownloadManager mDownloadManager;
 
@@ -108,7 +108,7 @@ public class DownloadService extends Service {
 
     private void download(final RequestDownloadInfo RequestDownloadInfo, String tag) {
         final DownloadRequest request = new DownloadRequest.Builder()
-                .setName(RequestDownloadInfo.getName() + ".apk")
+                .setName(RequestDownloadInfo.getName() + ".download")
                 .setUri(RequestDownloadInfo.getUrl())
                 .setFolder(mDownloadDir)
                 .build();
@@ -217,6 +217,21 @@ public class DownloadService extends Service {
 
             mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
             mRequestDownloadInfo.setProgress(100);
+
+            String url = mRequestDownloadInfo.getUrl();
+            String addon="";
+            int index = -1;
+            if(( index = url.lastIndexOf("."))>0){
+                addon = url.substring(index,url.length());
+            }
+            String name = mRequestDownloadInfo.getName().substring(0,mRequestDownloadInfo.getName().indexOf(".download"));
+            String fullname = name+addon;
+            File lastFile = new File(mDownloadDir,mRequestDownloadInfo.getName());
+            File NewFile = new File(mDownloadDir.getPath()+"/"+fullname);
+            if(NewFile.exists()){
+                NewFile.delete();
+            }
+            lastFile.renameTo(NewFile);
             sendBroadCast(mRequestDownloadInfo);
         }
 
@@ -284,7 +299,8 @@ public class DownloadService extends Service {
         super.onCreate();
         mDownloadManager = DownloadManager.getInstance();
         mNotificationManager = NotificationManagerCompat.from(getApplicationContext());
-        mDownloadDir = new File(Environment.getExternalStorageDirectory(), "Download");
+        //mDownloadDir = new File(Environment.getExternalStorageDirectory(), "Download");
+        mDownloadDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), "iLivePhoto");
     }
 
     @Override
