@@ -6,6 +6,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
@@ -20,9 +22,11 @@ import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aspsine.multithreaddownload.DownloadConfiguration;
 import com.aspsine.multithreaddownload.DownloadManager;
@@ -30,6 +34,7 @@ import com.aspsine.multithreaddownload.DownloadService;
 import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.serenegiant.audiovideosample.LivePhotosActivity;
 import com.serenegiant.audiovideosample.R;
+import com.serenegiant.glutils.PhotoHelpTools;
 
 import java.util.List;
 
@@ -115,6 +120,7 @@ public class OnlineLivePhotosActivity extends Activity {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, final int position, long id) {
+                final ImageView imgView = (ImageView) view.findViewById(R.id.itemImage);
                 SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this,new View.OnClickListener(){
 
                     @Override
@@ -122,8 +128,15 @@ public class OnlineLivePhotosActivity extends Activity {
                         dddd.dismiss();
                         OnlineLivePhotoItem livePhotoItem = mLivePhotoAdapter.getItem(position);
                         if (v.getId() == R.id.btn_download) {
+                            if(imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
+                                PhotoHelpTools.saveBitmpFile((Bitmap)((BitmapDrawable) imgView.getDrawable()).getBitmap(),livePhotoItem.title+".jpg");
+                            }else {
+                                Toast.makeText(OnlineLivePhotosActivity.this,"图片还未下载显示呢，请稍等。",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
                              RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,livePhotoItem.videoUrl);
                             DownloadService.intentDownload(OnlineLivePhotosActivity.this, livePhotoItem.title, requestDownloadInfo);
+
                         }else if(v.getId() == R.id.btn_preview){
 
                         }
