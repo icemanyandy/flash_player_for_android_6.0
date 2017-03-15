@@ -23,6 +23,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aspsine.multithreaddownload.DownloadConfiguration;
 import com.aspsine.multithreaddownload.DownloadManager;
@@ -297,12 +298,12 @@ public class OnlineLivePhotosActivity extends Activity {
                     appInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
                     appInfo.setProgress(tmpInfo.getProgress());
                     appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
+                    Toast.makeText(OnlineLivePhotosActivity.this,appInfo.getName() +" 下载完成。",Toast.LENGTH_SHORT).show();
 
                     break;
 
                 case RequestDownloadInfo.STATUS_PAUSED:
                     appInfo.setStatus(RequestDownloadInfo.STATUS_PAUSED);
-
                     break;
                 case RequestDownloadInfo.STATUS_NOT_DOWNLOAD:
                     appInfo.setStatus(RequestDownloadInfo.STATUS_NOT_DOWNLOAD);
@@ -312,6 +313,7 @@ public class OnlineLivePhotosActivity extends Activity {
                 case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
                     appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
                     appInfo.setDownloadPerSize("");
+                    Toast.makeText(OnlineLivePhotosActivity.this,appInfo.getName() +" 下载错误。",Toast.LENGTH_SHORT).show();
                     break;
             }
         }

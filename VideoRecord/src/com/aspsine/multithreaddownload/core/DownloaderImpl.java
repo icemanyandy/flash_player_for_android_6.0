@@ -162,10 +162,18 @@ public class DownloaderImpl implements Downloader, ConnectTask.OnConnectListener
     public void onDownloadConnecting() {
     }
 
+    int lastProgress = 1;
     @Override
     public void onDownloadProgress(long finished, long length) {
         // calculate percent
-        final int percent = (int) (finished * 100 / length);
+        int percent = lastProgress;
+
+        if(length>0) {
+            percent = (int) (finished * 100 / length);
+        }else {
+            percent++;
+            lastProgress = percent = percent%100;
+        }
         mResponse.onDownloadProgress(finished, length, percent);
     }
 
