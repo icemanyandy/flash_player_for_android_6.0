@@ -122,10 +122,8 @@ public class OnlineLivePhotosActivity extends Activity {
                         dddd.dismiss();
                         OnlineLivePhotoItem livePhotoItem = mLivePhotoAdapter.getItem(position);
                         if (v.getId() == R.id.btn_download) {
-                            RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo();
-                            String downloadUrl = livePhotoItem.videoUrl ;//"http://dldir1.qq.com/qqmi/TencentVideo_V4.1.0.8897_51.apk";
-                            requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,downloadUrl);
-                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, "testapkdownload", requestDownloadInfo);
+                             RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,livePhotoItem.videoUrl);
+                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, livePhotoItem.title, requestDownloadInfo);
                         }else if(v.getId() == R.id.btn_preview){
 
                         }

@@ -1,6 +1,7 @@
 package com.serenegiant.online;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -75,7 +77,7 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Holder holder;
 		if (convertView == null) {
-			convertView = inflater.inflate(R.layout.livephoto_item, null);
+			convertView = inflater.inflate(R.layout.online_livephoto_item, null);
 			holder = new Holder();
 			holder.tv = (TextView) convertView.findViewById(R.id.itemName);
 			holder.img = (ImageView) convertView.findViewById(R.id.itemImage);
@@ -94,6 +96,15 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		ImageLoader.getInstance().displayImage(item.picUrl, holder.img);
 		if(position == getCount()-1){
 			useDefaultImg = false;
+		}
+
+		if(item.download_state == RequestDownloadInfo.STATUS_CONNECTING){
+			holder.progressBar.setBackgroundColor(Color.YELLOW);
+		}else if(item.download_state == RequestDownloadInfo.STATUS_DOWNLOAD_ERROR
+				|| item.download_state == RequestDownloadInfo.STATUS_NOT_DOWNLOAD){
+			holder.progressBar.setBackgroundColor(Color.RED);
+		}else{
+			holder.progressBar.setBackgroundColor(Color.TRANSPARENT);
 		}
 		return convertView;
 	}

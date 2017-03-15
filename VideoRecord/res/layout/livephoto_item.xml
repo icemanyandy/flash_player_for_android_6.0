@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/itemImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="3dp"
         android:background="#90000000"
         android:gravity="center"
         android:maxLines="2"
@@ -30,13 +30,4 @@
         android:textColor="@android:color/white"
         android:textSize="10dp"></TextView>
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:id="@+id/itemProgress"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_alignBottom="@+id/itemImage"
-        android:max="100"
-        android:progress="0"
-        android:progressDrawable="@drawable/progress_style" />
 </RelativeLayout>

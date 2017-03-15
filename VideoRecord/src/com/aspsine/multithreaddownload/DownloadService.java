@@ -209,14 +209,7 @@ public class DownloadService extends Service {
 
         @Override
         public void onCompleted() {
-            L.i(TAG, "onCompleted()");
-            mBuilder.setContentText("Download Complete");
-            mBuilder.setProgress(0, 0, false);
-            mBuilder.setTicker(mRequestDownloadInfo.getName() + " download Complete");
-            updateNotification();
 
-            mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
-            mRequestDownloadInfo.setProgress(100);
 
             String url = mRequestDownloadInfo.getUrl();
             String addon="";
@@ -224,15 +217,33 @@ public class DownloadService extends Service {
             if(( index = url.lastIndexOf("."))>0){
                 addon = url.substring(index,url.length());
             }
-            String name = mRequestDownloadInfo.getName().substring(0,mRequestDownloadInfo.getName().indexOf(".download"));
+            String name = mRequestDownloadInfo.getName();
             String fullname = name+addon;
-            File lastFile = new File(mDownloadDir,mRequestDownloadInfo.getName());
+            File lastFile = new File(mDownloadDir,mRequestDownloadInfo.getName()+".download");
             File NewFile = new File(mDownloadDir.getPath()+"/"+fullname);
             if(NewFile.exists()){
                 NewFile.delete();
             }
-            lastFile.renameTo(NewFile);
-            sendBroadCast(mRequestDownloadInfo);
+            boolean ret = lastFile.renameTo(NewFile);
+
+            if(ret) {
+                L.i(TAG, "onCompleted()");
+                mBuilder.setContentText("Download Complete");
+                mBuilder.setProgress(0, 0, false);
+                mBuilder.setTicker(mRequestDownloadInfo.getName() + " download Complete");
+                updateNotification();
+
+                mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
+                mRequestDownloadInfo.setProgress(100);
+                sendBroadCast(mRequestDownloadInfo);
+            }else{
+                mBuilder.setContentText("Download Failed");
+                mBuilder.setTicker(mRequestDownloadInfo.getName() + " download failed");
+                mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
+                updateNotification();
+                mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
+                sendBroadCast(mRequestDownloadInfo);
+            }
         }
 
         @Override
