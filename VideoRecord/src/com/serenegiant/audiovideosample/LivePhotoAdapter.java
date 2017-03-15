@@ -16,6 +16,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -41,7 +42,16 @@ public class LivePhotoAdapter extends BaseAdapter {
 
 	public void loadImageList(){
 
-		File[] files = iLivePhotoDir.listFiles();
+		File[] files = iLivePhotoDir.listFiles(new FileFilter(){
+
+			@Override
+			public boolean accept(File pathname) {
+				String path = getVideoPath(pathname.getPath());
+				if(path != null)
+					return true;
+				return false;
+			}
+		});
 		if (files == null || files.length < 1) {
 			return;
 		}
@@ -73,9 +83,12 @@ public class LivePhotoAdapter extends BaseAdapter {
 	public String getImagePath(int postion){
 		return iLivePhotoDir.getPath() + "/" + mPhotoImagePath.get(postion);
 	}
+	public String getVideoPath(int postion){
+		return getVideoPath(getImagePath(postion));
+	}
 
-	public String getVideoPath(int postion) {
-		String defText = iLivePhotoDir.getPath() + "/" + mPhotoImagePath.get(postion);
+	public String getVideoPath(String path) {
+		String defText = path;
 		String defaultName = defText.replace(".jpg", ".mp4");
 		File defFile = new File(defaultName);
 		if (defFile.exists()) {
@@ -96,7 +109,7 @@ public class LivePhotoAdapter extends BaseAdapter {
 				return defFile.getPath();
 			}
 		}
-		return defaultName;
+		return null;
 	}
 
 	public static void initImageLoader(Context context) {
