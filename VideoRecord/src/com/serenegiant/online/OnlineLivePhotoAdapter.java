@@ -93,7 +93,8 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		if(useDefaultImg) {
 			holder.img.setImageResource(R.drawable.default_pic_nine);
 		}
-		ImageLoader.getInstance().displayImage(item.picUrl, holder.img);
+		String imgURl = item.picUrl.startsWith("http")?item.picUrl:item.headURL+item.picUrl;
+		ImageLoader.getInstance().displayImage(imgURl, holder.img);
 		if(position == getCount()-1){
 			useDefaultImg = false;
 		}

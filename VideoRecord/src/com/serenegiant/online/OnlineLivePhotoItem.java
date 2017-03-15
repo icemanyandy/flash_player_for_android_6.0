@@ -14,7 +14,7 @@ public  class OnlineLivePhotoItem implements Comparable {
     public String videoUrl;//下载地址
     public String tips;//说明
 
-
+    public String headURL = "";
     //内部更新
     public int download_progress = 0;
     public int download_state = -1;
