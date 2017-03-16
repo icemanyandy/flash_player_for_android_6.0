@@ -3,7 +3,6 @@ package com.aspsine.multithreaddownload;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
 
 import com.aspsine.multithreaddownload.architecture.DownloadResponse;
 import com.aspsine.multithreaddownload.architecture.DownloadStatusDelivery;
@@ -67,7 +66,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         init(context, new DownloadConfiguration());
     }
 
-    public void init(Context context, @NonNull DownloadConfiguration config) {
+    public void init(Context context,  DownloadConfiguration config) {
         if (config.getThreadNum() > config.getMaxThreadNum()) {
             throw new IllegalArgumentException("thread num must < max thread num");
         }

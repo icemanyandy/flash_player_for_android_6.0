@@ -38,10 +38,9 @@ public class LivePhotosActivity extends Activity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.livephoto_mainlayout);
-        //SettingTool.init(this);
+        SettingTool.init(this);
         mGridView = (GridView) this.findViewById(R.id.gridview_photos);
-        mLivePhotoAdapter = new LivePhotoAdapter(this);
-        mGridView.setAdapter(mLivePhotoAdapter);
+
         View onlineview  = this.findViewById(R.id.title_online);
         onlineview.setOnClickListener(new View.OnClickListener(){
 
@@ -103,8 +102,8 @@ public class LivePhotosActivity extends Activity {
                                     builder.create().show();
 
                                 } else if (v.getId() == R.id.btn_pick_photo) {
-                                    //SettingTool.setData("livephoto_path_img", mLivePhotoAdapter.getImagePath(position));
-                                    //SettingTool.setData("livephoto_path_video", mLivePhotoAdapter.getVideoPath(position));
+                                    SettingTool.setData("livephoto_path_img", mLivePhotoAdapter.getImagePath(position));
+                                    SettingTool.setData("livephoto_path_video", mLivePhotoAdapter.getVideoPath(position));
                                     Toast.makeText(LivePhotosActivity.this, "恭喜您，已经设定成功", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -120,6 +119,13 @@ public class LivePhotosActivity extends Activity {
 
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mLivePhotoAdapter = new LivePhotoAdapter(this);
+        mGridView.setAdapter(mLivePhotoAdapter);
     }
 
     public void onClick(View v) {

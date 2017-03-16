@@ -32,13 +32,14 @@ import com.aspsine.multithreaddownload.DownloadConfiguration;
 import com.aspsine.multithreaddownload.DownloadManager;
 import com.aspsine.multithreaddownload.DownloadService;
 import com.aspsine.multithreaddownload.RequestDownloadInfo;
+import com.serenegiant.audiovideosample.BaseActivity;
 import com.serenegiant.audiovideosample.LivePhotosActivity;
 import com.serenegiant.audiovideosample.R;
 import com.serenegiant.glutils.PhotoHelpTools;
 
 import java.util.List;
 
-public class OnlineLivePhotosActivity extends Activity {
+public class OnlineLivePhotosActivity extends BaseActivity {
     GridView mGridView;
     OnlineLivePhotoAdapter mLivePhotoAdapter;
     SelectPicPopupWindow dddd = null;
@@ -127,6 +128,8 @@ public class OnlineLivePhotosActivity extends Activity {
                     public void onClick(View v) {
                         dddd.dismiss();
                         OnlineLivePhotoItem livePhotoItem = mLivePhotoAdapter.getItem(position);
+                        String downloadURL = livePhotoItem.videoUrl;
+
                         if (v.getId() == R.id.btn_download) {
                             if(imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 PhotoHelpTools.saveBitmpFile((Bitmap)((BitmapDrawable) imgView.getDrawable()).getBitmap(),livePhotoItem.title+".jpg");
@@ -134,9 +137,8 @@ public class OnlineLivePhotosActivity extends Activity {
                                 Toast.makeText(OnlineLivePhotosActivity.this,"图片还未下载显示呢，请稍等。",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                             RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,livePhotoItem.videoUrl);
+                            RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,downloadURL);
                             DownloadService.intentDownload(OnlineLivePhotosActivity.this, livePhotoItem.title, requestDownloadInfo);
-
                         }else if(v.getId() == R.id.btn_preview){
 
                         }
@@ -307,11 +309,12 @@ public class OnlineLivePhotosActivity extends Activity {
 
                     break;
                 case RequestDownloadInfo.STATUS_COMPLETE:
+                    if(appInfo.getStatus() != RequestDownloadInfo.STATUS_COMPLETE) {
+                        Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getName() + " 下载完成。", Toast.LENGTH_SHORT).show();
+                    }
                     appInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
                     appInfo.setProgress(tmpInfo.getProgress());
                     appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
-                    Toast.makeText(OnlineLivePhotosActivity.this,appInfo.getName() +" 下载完成。",Toast.LENGTH_SHORT).show();
-
                     break;
 
                 case RequestDownloadInfo.STATUS_PAUSED:
@@ -323,9 +326,11 @@ public class OnlineLivePhotosActivity extends Activity {
                     appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
                     break;
                 case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
+                    if(appInfo.getStatus() != RequestDownloadInfo.STATUS_DOWNLOAD_ERROR) {
+                        Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getName() + " 下载错误。", Toast.LENGTH_SHORT).show();
+                    }
                     appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
                     appInfo.setDownloadPerSize("");
-                    Toast.makeText(OnlineLivePhotosActivity.this,appInfo.getName() +" 下载错误。",Toast.LENGTH_SHORT).show();
                     break;
             }
         }

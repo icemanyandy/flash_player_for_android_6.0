@@ -18,7 +18,7 @@ public  class OnlineLivePhotoItem implements Comparable {
     //内部更新
     public int download_progress = 0;
     public int download_state = -1;
-    public OnlineLivePhotoItem(String sp[]){
+    public OnlineLivePhotoItem(String sp[],String theadURL){
         if(sp == null||sp.length<5)
             return;
         lables = sp[1];
@@ -27,6 +27,11 @@ public  class OnlineLivePhotoItem implements Comparable {
         payMoney = sp[3];
         picUrl = sp[4];
         videoUrl = sp[5];
+        headURL = theadURL;
+        if(!TextUtils.isEmpty(theadURL)) {
+            picUrl = picUrl.startsWith("http") ? picUrl : headURL + picUrl;
+            videoUrl = videoUrl.startsWith("http") ? videoUrl : headURL + videoUrl;
+        }
     }
 
 
