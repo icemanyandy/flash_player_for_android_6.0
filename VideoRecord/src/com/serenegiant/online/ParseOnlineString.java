@@ -16,6 +16,7 @@ import java.util.List;
 public class ParseOnlineString {
      List<OnlineLivePhotoItem> mItemList = new ArrayList<OnlineLivePhotoItem>() ;
     String lables ;
+    String headURL = null;
     public String dataStr;
 
 
@@ -34,8 +35,10 @@ public class ParseOnlineString {
                 if(split != null && count != 1) {
                     OnlineLivePhotoItem itemOne = new OnlineLivePhotoItem(split);
                     lables+="|"+split[1];
+                    itemOne.headURL = headURL;
                     mItemList.add(itemOne);
                 }else {
+                    headURL = split[5];
                     continue;
                 }
             }
@@ -43,6 +46,10 @@ public class ParseOnlineString {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public String getHeadURL(){
+        return headURL;
     }
 
     public String[] getLables(){

@@ -95,7 +95,7 @@ public class ConnectTaskImpl implements ConnectTask {
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 parseResponse(httpConnection, false);
             } else if (responseCode == HttpURLConnection.HTTP_PARTIAL) {
-                parseResponse(httpConnection, true);
+                parseResponse(httpConnection, false);//说是可以多线程下载
             } else {
                 throw new DownloadException(DownloadStatus.STATUS_FAILED, "UnSupported response code:" + responseCode);
             }
@@ -121,7 +121,7 @@ public class ConnectTaskImpl implements ConnectTask {
         }
 
         if (length <= 0) {
-            throw new DownloadException(DownloadStatus.STATUS_FAILED, "length <= 0");
+             //throw new DownloadException(DownloadStatus.STATUS_FAILED, "length <= 0");
         }
 
         checkCanceledOrPaused();

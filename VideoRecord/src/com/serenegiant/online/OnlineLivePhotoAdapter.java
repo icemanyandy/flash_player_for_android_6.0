@@ -1,7 +1,6 @@
 package com.serenegiant.online;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,7 @@ import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.serenegiant.audiovideosample.R;
 
 import java.util.ArrayList;
@@ -96,6 +93,8 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		if(useDefaultImg) {
 			holder.img.setImageResource(R.drawable.default_pic_nine);
 		}
+		String imgURl = item.picUrl.startsWith("http")?item.picUrl:item.headURL+item.picUrl;
+		ImageLoader.getInstance().displayImage(imgURl, holder.img);
 		if(position == getCount()-1){
 			useDefaultImg = false;
 		}
@@ -108,30 +107,6 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		}else{
 			holder.progressBar.setBackgroundColor(Color.TRANSPARENT);
 		}
-
-		ImageLoader.getInstance().displayImage(item.picUrl, holder.img, new ImageLoadingListener() {
-			@Override
-			public void onLoadingStarted(String s, View view) {
-
-			}
-
-			@Override
-			public void onLoadingFailed(String s, View view, FailReason failReason) {
-				ImageView imageView = (ImageView) view;
-				imageView.setImageResource(R.drawable.default_pic_nine);
-			}
-
-			@Override
-			public void onLoadingComplete(String s, View view, Bitmap bitmap) {
-				ImageView imageView = (ImageView) view;
-				imageView.setImageBitmap(bitmap);
-			}
-
-			@Override
-			public void onLoadingCancelled(String s, View view) {
-
-			}
-		});
 		return convertView;
 	}
 
