@@ -48,13 +48,36 @@ public class OnlineLivePhotosActivity extends BaseActivity {
     AutoLineLayout mAutoLineLayout;
     private DownloadReceiver mReceiver;
 
+    ViewGroup container;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.online_livephoto_mainlayout);
+        container = (ViewGroup) this.findViewById(R.id.container);
         initDownloader();
-        String testString = ParseOnlineString.getTestAssertFile(this);
-        mParseOnlineTool = new ParseOnlineString(testString);
+        ParseOnlineString.startLoadConfig(onLineCallBack);
+        showDailog();
+    }
+
+    ParseOnlineString.CallBack onLineCallBack = new ParseOnlineString.CallBack() {
+        @Override
+        public void onLoadConfig(final String data) {
+            container.post(new Runnable() {
+                @Override
+                public void run() {
+                    fillData(data);
+                    hideDailog();
+                }
+            });
+        }
+    };
+
+    public void fillData(String data){
+        if(data == null){
+            data = ParseOnlineString.getTestAssertFile(this);
+            Toast.makeText(this,"本地测试",Toast.LENGTH_SHORT).show();
+        }
+        mParseOnlineTool = new ParseOnlineString(data);
 
         //SettingTool.init(this);
         mGridView = (GridView) this.findViewById(R.id.gridview_photos);
@@ -107,16 +130,6 @@ public class OnlineLivePhotosActivity extends BaseActivity {
             }
         }
 
-   /*      for (AppInfo info : mAppInfos) {
-            DownloadInfo downloadInfo = DownloadManager.getInstance().getDownloadInfo(info.getUrl());
-            if (downloadInfo != null) {
-                info.setProgress(downloadInfo.getProgress());
-                info.setDownloadPerSize(Utils.getDownloadPerSize(downloadInfo.getFinished(), downloadInfo.getLength()));
-                info.setStatus(AppInfo.STATUS_PAUSED);
-            }
-        }
-        */
-
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -132,7 +145,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
 
                         if (v.getId() == R.id.btn_download) {
                             if(imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
-                                PhotoHelpTools.saveBitmpFile((Bitmap)((BitmapDrawable) imgView.getDrawable()).getBitmap(),livePhotoItem.title+".jpg");
+                                PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
                             }else {
                                 Toast.makeText(OnlineLivePhotosActivity.this,"图片还未下载显示呢，请稍等。",Toast.LENGTH_SHORT).show();
                                 return;

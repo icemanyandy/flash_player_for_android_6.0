@@ -2,7 +2,6 @@ package com.serenegiant.online;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +13,9 @@ import android.widget.TextView;
 
 import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.serenegiant.audiovideosample.R;
@@ -51,17 +48,17 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 	}
 
 	public static void initImageLoader(Context context) {
-		BitmapFactory.Options ops = new BitmapFactory.Options();
-		ops.inJustDecodeBounds = true;
-		ops.inPreferredConfig = Bitmap.Config.ARGB_8888;
-		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
-   		                     .imageScaleType(ImageScaleType.EXACTLY) // default
-		                     .bitmapConfig(Bitmap.Config.ARGB_8888) // default
-							.decodingOptions(ops)
-				.build();
+//		BitmapFactory.Options ops = new BitmapFactory.Options();
+//		ops.inJustDecodeBounds = true;
+//		ops.inPreferredConfig = Bitmap.Config.ARGB_8888;
+//		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
+//   		                     .imageScaleType(ImageScaleType.EXACTLY) // default
+//		                     .bitmapConfig(Bitmap.Config.ARGB_8888) // default
+//							.decodingOptions(ops)
+//				.build();
 
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
-				.threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory().defaultDisplayImageOptions(displayImageOptions)
+				.threadPriority(Thread.NORM_PRIORITY - 2)//.defaultDisplayImageOptions(displayImageOptions)
 				.discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO)
 				.build();
 		ImageLoader.getInstance().init(config);

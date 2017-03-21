@@ -2,6 +2,7 @@ package com.serenegiant.online;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.aspsine.multithreaddownload.Constants;
 
@@ -19,82 +20,81 @@ import java.util.List;
  * Created by yangdi1 on 2017/3/5.
  */
 public class ParseOnlineString {
-    List<OnlineLivePhotoItem> mItemList = new ArrayList<OnlineLivePhotoItem>() ;
-    String lables ;
+    List<OnlineLivePhotoItem> mItemList = new ArrayList<OnlineLivePhotoItem>();
+    String lables;
     String headURL = null;
     public String dataStr;
 
 
-    public ParseOnlineString(String data){
+    public ParseOnlineString(String data) {
         dataStr = data;
         lables = "全部";
         mItemList.clear();
         try {
-        BufferedReader br = new BufferedReader(new InputStreamReader
-                (new ByteArrayInputStream(dataStr.getBytes())));
-            String line ;
+            BufferedReader br = new BufferedReader(new InputStreamReader
+                    (new ByteArrayInputStream(dataStr.getBytes())));
+            String line;
             int count = 0;
             while ((line = br.readLine()) != null) {
                 String split[] = line.split(",");
                 count++;
-                if(split != null && count != 1) {
-                    OnlineLivePhotoItem itemOne = new OnlineLivePhotoItem(split,headURL);
-                    lables+="|"+split[1];
+                if (split != null && count != 1) {
+                    OnlineLivePhotoItem itemOne = new OnlineLivePhotoItem(split, headURL);
+                    lables += "|" + split[1];
                     mItemList.add(itemOne);
-                }else {
+                } else {
                     headURL = split[5];
                     continue;
                 }
             }
             Collections.sort(mItemList);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public String getHeadURL(){
+    public String getHeadURL() {
         return headURL;
     }
 
-    public String[] getLables(){
-         return lables.split("\\|");
+    public String[] getLables() {
+        return lables.split("\\|");
     }
 
-    public static String getTestAssertFile(Context context)
-    {
-        String Result="";
+    public static String getTestAssertFile(Context context) {
+        String Result = "";
         try {
-            InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open("online_data.csv") );
+            InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open("online_data.csv"));
             BufferedReader bufReader = new BufferedReader(inputReader);
-            String line="";
-            while((line = bufReader.readLine()) != null) {
-                Result += line+"\r";
+            String line = "";
+            while ((line = bufReader.readLine()) != null) {
+                Result += line + "\r";
             }
-         } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
         return Result;
     }
 
-    public List getItemList(){
+    public List getItemList() {
         return mItemList;
     }
-    public List getItemList(String label){
-        if(TextUtils.isEmpty(label)){
+
+    public List getItemList(String label) {
+        if (TextUtils.isEmpty(label)) {
             return mItemList;
         }
         List<OnlineLivePhotoItem> tempList = new ArrayList<>();
-        for(OnlineLivePhotoItem item : mItemList){
-            if(item.lables != null && item.lables.contains(label)){
+        for (OnlineLivePhotoItem item : mItemList) {
+            if (item.lables != null && item.lables.contains(label)) {
                 tempList.add(item);
             }
         }
         return tempList;
     }
 
-    public String loadConfig(String urlStr) {
-        try {
+    public static String loadConfig(String urlStr) throws Exception {
             URL url = new URL(urlStr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(Constants.HTTP.CONNECT_TIME_OUT);
@@ -108,18 +108,15 @@ public class ParseOnlineString {
                 sb.append(line + "\r");
             }
             return sb.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+     }
 
-    Thread mThread;
-    int count = 0;
-    final String configURL1 = "http://git.oschina.net/softboys/database/raw/master/livephoto/online_data.csv";
-    final String configURL2 = "http://git.oschina.net/softboys/database/raw/master/livephoto/online_data.csv";
-    String loadURL = configURL1;
-     public void startLoadConfig(final CallBack cb) {
+    static Thread mThread;
+    static int count = 0;
+    final static String configURL1 = "http://git.oschina.net/softboys/database/raw/master/livephoto/online_data.csv";
+    final static String configURL2 = "http://git.oschina.net/softboys/database/raw/master/livephoto/online_data.csv";
+    static String loadURL = configURL1;
+
+    public static void startLoadConfig(final CallBack cb) {
         if (mThread != null) {
             mThread.interrupt();
             mThread = null;
@@ -128,26 +125,32 @@ public class ParseOnlineString {
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                if (count > 6)
+                if (count > 6) {
+                    if (cb != null) {
+                        cb.onLoadConfig(null);
+                    }
                     return;
-                else if (count > 3) {
+                } else if (count > 3) {
                     loadURL = configURL2;
                 }
                 try {
                     String out = loadConfig(loadURL);
-                    if(cb != null){
+                    if (cb != null) {
                         cb.onLoadConfig(out);
+                        return;
                     }
                     count++;
                 } catch (Exception e) {
+                    Log.e("dige","startLoadConfig Exception "+e.toString());
                     this.run();
                 }
+
             }
         });
         mThread.start();
-     }
+    }
 
-    public interface CallBack {
+    public static interface CallBack {
         public void onLoadConfig(String data);
     }
 }
