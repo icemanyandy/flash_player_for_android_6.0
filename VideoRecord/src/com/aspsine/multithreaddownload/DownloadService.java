@@ -106,9 +106,17 @@ public class DownloadService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    private void download(final RequestDownloadInfo RequestDownloadInfo, String tag) {
-        final DownloadRequest request = new DownloadRequest.Builder()
-                .setName(RequestDownloadInfo.getName() + ".download")
+    private void download(RequestDownloadInfo RequestDownloadInfo, String tag) {
+        String url = RequestDownloadInfo.getUrl();
+        String addon="";
+        int index = -1;
+        if(( index = url.lastIndexOf("."))>0){
+            addon = url.substring(index,url.length());
+            addon = addon.toLowerCase();
+        }
+
+        DownloadRequest request = new DownloadRequest.Builder()
+                .setName(RequestDownloadInfo.getName() + addon+"_download")
                 .setUri(RequestDownloadInfo.getUrl())
                 .setFolder(mDownloadDir)
                 .build();
@@ -157,10 +165,10 @@ public class DownloadService extends Service {
         public void onStarted() {
             L.i(TAG, "onStart()");
             mBuilder.setSmallIcon(R.drawable.ic_launcher_download)
-                    .setContentTitle(mRequestDownloadInfo.getName())
+                    .setContentTitle(mRequestDownloadInfo.getShowName())
                     .setContentText("Init Download")
                     .setProgress(100, 0, true)
-                    .setTicker("Start download " + mRequestDownloadInfo.getName());
+                    .setTicker("Start download " + mRequestDownloadInfo.getShowName());
             updateNotification();
         }
 
@@ -210,16 +218,16 @@ public class DownloadService extends Service {
         @Override
         public void onCompleted() {
 
-
             String url = mRequestDownloadInfo.getUrl();
             String addon="";
             int index = -1;
             if(( index = url.lastIndexOf("."))>0){
                 addon = url.substring(index,url.length());
+                addon = addon.toLowerCase();
             }
             String name = mRequestDownloadInfo.getName();
             String fullname = name+addon;
-            File lastFile = new File(mDownloadDir,mRequestDownloadInfo.getName()+".download");
+            File lastFile = new File(mDownloadDir,mRequestDownloadInfo.getName()+addon+"_download");
             File NewFile = new File(mDownloadDir.getPath()+"/"+fullname);
             if(NewFile.exists()){
                 NewFile.delete();
@@ -230,7 +238,7 @@ public class DownloadService extends Service {
                 L.i(TAG, "onCompleted()");
                 mBuilder.setContentText("Download Complete");
                 mBuilder.setProgress(0, 0, false);
-                mBuilder.setTicker(mRequestDownloadInfo.getName() + " download Complete");
+                mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download Complete");
                 updateNotification();
 
                 mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
@@ -238,7 +246,7 @@ public class DownloadService extends Service {
                 sendBroadCast(mRequestDownloadInfo);
             }else{
                 mBuilder.setContentText("Download Failed");
-                mBuilder.setTicker(mRequestDownloadInfo.getName() + " download failed");
+                mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download failed");
                 mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
                 updateNotification();
                 mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
@@ -250,7 +258,7 @@ public class DownloadService extends Service {
         public void onDownloadPaused() {
             L.i(TAG, "onDownloadPaused()");
             mBuilder.setContentText("Download Paused");
-            mBuilder.setTicker(mRequestDownloadInfo.getName() + " download Paused");
+            mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download Paused");
             mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
             updateNotification();
 
@@ -262,7 +270,7 @@ public class DownloadService extends Service {
         public void onDownloadCanceled() {
             L.i(TAG, "onDownloadCanceled()");
             mBuilder.setContentText("Download Canceled");
-            mBuilder.setTicker(mRequestDownloadInfo.getName() + " download Canceled");
+            mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download Canceled");
             updateNotification();
 
             //there is 1000 ms memory leak, shouldn't be a problem
@@ -284,7 +292,7 @@ public class DownloadService extends Service {
             L.i(TAG, "onFailed()");
             e.printStackTrace();
             mBuilder.setContentText("Download Failed");
-            mBuilder.setTicker(mRequestDownloadInfo.getName() + " download failed");
+            mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download failed");
             mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
             updateNotification();
 

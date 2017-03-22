@@ -6,7 +6,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
@@ -35,7 +34,6 @@ import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.serenegiant.audiovideosample.BaseActivity;
 import com.serenegiant.audiovideosample.LivePhotosActivity;
 import com.serenegiant.audiovideosample.R;
-import com.serenegiant.glutils.PhotoHelpTools;
 
 import java.util.List;
 
@@ -62,13 +60,15 @@ public class OnlineLivePhotosActivity extends BaseActivity {
     ParseOnlineString.CallBack onLineCallBack = new ParseOnlineString.CallBack() {
         @Override
         public void onLoadConfig(final String data) {
-            container.post(new Runnable() {
+            Log.e("dige","onLineCallBack ");
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    Log.e("dige", "onLineCallBack update ui");
                     fillData(data);
                     hideDailog();
                 }
-            });
+            },300);
         }
     };
 
@@ -142,16 +142,20 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                         dddd.dismiss();
                         OnlineLivePhotoItem livePhotoItem = mLivePhotoAdapter.getItem(position);
                         String downloadURL = livePhotoItem.videoUrl;
+                        String imageURL = livePhotoItem.picUrl;
 
                         if (v.getId() == R.id.btn_download) {
                             if(imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
-                                PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
+                               // PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
                             }else {
                                 Toast.makeText(OnlineLivePhotosActivity.this,"图片还未下载显示呢，请稍等。",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            RequestDownloadInfo requestDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,downloadURL);
-                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, livePhotoItem.title, requestDownloadInfo);
+                            RequestDownloadInfo requestVideoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,livePhotoItem.title +" 视频",downloadURL);
+                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, requestVideoDownloadInfo.getShowName(), requestVideoDownloadInfo);
+
+                            RequestDownloadInfo requestPhotoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title, livePhotoItem.title +" 壁纸",imageURL);
+                            DownloadService.intentDownload(OnlineLivePhotosActivity.this, requestPhotoDownloadInfo.getShowName(), requestPhotoDownloadInfo);
                         }else if(v.getId() == R.id.btn_preview){
 
                         }

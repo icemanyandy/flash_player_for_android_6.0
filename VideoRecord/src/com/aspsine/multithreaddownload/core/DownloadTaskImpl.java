@@ -3,6 +3,7 @@ package com.aspsine.multithreaddownload.core;
 
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.aspsine.multithreaddownload.Constants.HTTP;
 import com.aspsine.multithreaddownload.DownloadException;
@@ -21,7 +22,16 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Map;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by Aspsine on 2015/7/27.
@@ -125,6 +135,43 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
+    final static HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
+
+        @Override
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
+
+    };
+
+    private static void trustAllHosts() {
+        final String TAG = "trustAllHosts";
+        // Create a trust manager that does not validate certificate chains
+        TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+
+            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                return new java.security.cert.X509Certificate[] {};
+            }
+
+            public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                Log.i(TAG, "checkClientTrusted");
+            }
+
+            public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                Log.i(TAG, "checkServerTrusted");
+            }
+        } };
+
+        // Install the all-trusting trust manager
+        try {
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void executeDownload() throws DownloadException {
         final URL url;
         try {
@@ -135,7 +182,14 @@ public abstract class DownloadTaskImpl implements DownloadTask {
 
         HttpURLConnection httpConnection = null;
         try {
+            // trust all hosts
+            if (url.getProtocol().toUpperCase().equals("HTTPS")) {
+                trustAllHosts();
+            }
             httpConnection = (HttpURLConnection) url.openConnection();
+            if(httpConnection instanceof HttpsURLConnection){
+                ((HttpsURLConnection) httpConnection).setHostnameVerifier(DO_NOT_VERIFY);
+            }
             httpConnection.setConnectTimeout(HTTP.CONNECT_TIME_OUT);
             httpConnection.setReadTimeout(HTTP.READ_TIME_OUT);
             httpConnection.setRequestMethod(HTTP.GET);

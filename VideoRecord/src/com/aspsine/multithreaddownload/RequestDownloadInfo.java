@@ -16,7 +16,7 @@ public class RequestDownloadInfo  implements Serializable {
     public static final int STATUS_INSTALLED = 7;
 
     private String name;
-    private String packageName;
+    private String showName;
     private String image;
     private String url;
     private int progress;
@@ -28,6 +28,13 @@ public class RequestDownloadInfo  implements Serializable {
 
     public RequestDownloadInfo(String name, String url) {
         this.name = name;
+        this.showName = name;
+        this.url = url;
+    }
+
+    public RequestDownloadInfo(String name, String showName,String url) {
+        this.name = name;
+        this.showName = showName;
         this.url = url;
     }
 
@@ -39,12 +46,12 @@ public class RequestDownloadInfo  implements Serializable {
         this.name = name;
     }
 
-    public String getPackageName() {
-        return packageName;
+    public String getShowName() {
+        return showName;
     }
 
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
+    public void setShowName(String showName) {
+        this.showName = showName;
     }
 
     public String getUrl() {

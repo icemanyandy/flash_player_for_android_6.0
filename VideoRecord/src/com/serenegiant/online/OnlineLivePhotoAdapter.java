@@ -62,7 +62,6 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		ImageLoader.getInstance().init(config);
 
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ic_launcher) // 设置图片下载期间显示的图片
 				.showImageForEmptyUri(R.drawable.default_pic_nine) // 设置图片Uri为空或是错误的时候显示的图片
 				.showImageOnFail(R.drawable.default_pic_nine) // 设置图片加载或解码过程中发生错误显示的图片
 				.cacheInMemory(true) // 设置下载的图片是否缓存在内存中
