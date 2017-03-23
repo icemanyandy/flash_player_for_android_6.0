@@ -47,6 +47,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
     private DownloadReceiver mReceiver;
 
     ViewGroup container;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
     ParseOnlineString.CallBack onLineCallBack = new ParseOnlineString.CallBack() {
         @Override
         public void onLoadConfig(final String data) {
-            Log.e("dige","onLineCallBack ");
+            Log.e("dige", "onLineCallBack ");
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -68,28 +69,28 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                     fillData(data);
                     hideDailog();
                 }
-            },300);
+            }, 300);
         }
     };
 
-    public void fillData(String data){
-        if(data == null){
+    public void fillData(String data) {
+        if (data == null | true) {
             data = ParseOnlineString.getTestAssertFile(this);
-            Toast.makeText(this,"本地测试",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "本地测试", Toast.LENGTH_SHORT).show();
         }
         mParseOnlineTool = new ParseOnlineString(data);
 
         //SettingTool.init(this);
         mGridView = (GridView) this.findViewById(R.id.gridview_photos);
-        mLivePhotoAdapter = new OnlineLivePhotoAdapter(this,mParseOnlineTool.getItemList());
+        mLivePhotoAdapter = new OnlineLivePhotoAdapter(this, mParseOnlineTool.getItemList());
         mGridView.setAdapter(mLivePhotoAdapter);
-        View onlineview  = this.findViewById(R.id.title_online);
+        View onlineview = this.findViewById(R.id.title_online);
         onlineview.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(OnlineLivePhotosActivity.this,LivePhotosActivity.class);
+                intent.setClass(OnlineLivePhotosActivity.this, LivePhotosActivity.class);
                 startActivity(intent);
             }
         });
@@ -98,27 +99,27 @@ public class OnlineLivePhotosActivity extends BaseActivity {
         mAutoLineLayout = (AutoLineLayout) this.findViewById(R.id.toplables);
         String[] lables = mParseOnlineTool.getLables();
         String lableTemp = "";
-        if(lables != null) {
+        if (lables != null) {
             mAutoLineLayout.removeAllViews();
             int count = 0;
-            for (String ls :lables) {
-                if(lableTemp.contains(ls)){
+            for (String ls : lables) {
+                if (lableTemp.contains(ls)) {
                     continue;
                 }
                 count++;
-                lableTemp+=ls;
-                ViewGroup viewGroup  = (ViewGroup) getLayoutInflater().inflate(R.layout.online_itemlabel,null);
+                lableTemp += ls;
+                ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.online_itemlabel, null);
                 TextView tview = (TextView) viewGroup.findViewById(R.id.tag_text);
                 tview.setText(ls);
-                if(count == 1){
-                    tview.setEnabled(true);
+                if (count == 1) {
+                    tview.setSelected(true);
                 }
                 tview.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
                         String label = ((TextView) v).getText().toString();
-                        selectLable(mAutoLineLayout,label);
+                        selectLable(mAutoLineLayout, label);
                         if (label.equals("全部")) {
                             label = null;
                         }
@@ -135,7 +136,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, final int position, long id) {
                 final ImageView imgView = (ImageView) view.findViewById(R.id.itemImage);
-                SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this,new View.OnClickListener(){
+                SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this, new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -145,18 +146,18 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                         String imageURL = livePhotoItem.picUrl;
 
                         if (v.getId() == R.id.btn_download) {
-                            if(imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
-                               // PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
-                            }else {
-                                Toast.makeText(OnlineLivePhotosActivity.this,"图片还未下载显示呢，请稍等。",Toast.LENGTH_SHORT).show();
+                            if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
+                                // PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
+                            } else {
+                                Toast.makeText(OnlineLivePhotosActivity.this, "图片还未下载显示呢，请稍等。", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            RequestDownloadInfo requestVideoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title,livePhotoItem.title +" 视频",downloadURL);
+                            RequestDownloadInfo requestVideoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title, livePhotoItem.title + " 视频", downloadURL);
                             DownloadService.intentDownload(OnlineLivePhotosActivity.this, requestVideoDownloadInfo.getShowName(), requestVideoDownloadInfo);
 
-                            RequestDownloadInfo requestPhotoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title, livePhotoItem.title +" 壁纸",imageURL);
+                            RequestDownloadInfo requestPhotoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title, livePhotoItem.title + " 壁纸", imageURL);
                             DownloadService.intentDownload(OnlineLivePhotosActivity.this, requestPhotoDownloadInfo.getShowName(), requestPhotoDownloadInfo);
-                        }else if(v.getId() == R.id.btn_preview){
+                        } else if (v.getId() == R.id.btn_preview) {
 
                         }
                     }
@@ -222,7 +223,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
 
     public class SelectPicPopupWindow extends PopupWindow {
 
-        private Button btn_download, btn_preview, btn_cancel   ;
+        private Button btn_download, btn_preview, btn_cancel;
         private View mMenuView;
 
         public SelectPicPopupWindow(Activity context, OnClickListener itemsOnClick) {
@@ -248,7 +249,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
             // 设置按钮监听
             btn_download.setOnClickListener(itemsOnClick);
             btn_preview.setOnClickListener(itemsOnClick);
-             // 设置SelectPicPopupWindow的View
+            // 设置SelectPicPopupWindow的View
             this.setContentView(mMenuView);
             this.setBackgroundDrawable(null);
             // 设置SelectPicPopupWindow弹出窗体的宽
@@ -295,16 +296,16 @@ public class OnlineLivePhotosActivity extends BaseActivity {
             final RequestDownloadInfo tmpInfo = (RequestDownloadInfo) intent.getSerializableExtra(DownloadService.EXTRA_APP_INFO);
             final RequestDownloadInfo appInfo = tmpInfo;
             final int status = tmpInfo.getStatus();
-            Log.e("yangdi","DownloadReceiver status "+status);
-            if(mLivePhotoAdapter != null) {
+            Log.e("yangdi", "DownloadReceiver status " + status);
+            if (mLivePhotoAdapter != null) {
                 List<OnlineLivePhotoItem> itemList = mLivePhotoAdapter.getItemList();
-                if(itemList != null) {
+                if (itemList != null) {
                     for (OnlineLivePhotoItem item : itemList) {
-                        if(appInfo.getUrl().equals(item.videoUrl)){
+                        if (appInfo.getUrl().equals(item.videoUrl)) {
                             item.download_state = status;
-                            if(RequestDownloadInfo.STATUS_DOWNLOADING == status)
+                            if (RequestDownloadInfo.STATUS_DOWNLOADING == status)
                                 item.download_progress = tmpInfo.getProgress();
-                            else if(RequestDownloadInfo.STATUS_COMPLETE == status)
+                            else if (RequestDownloadInfo.STATUS_COMPLETE == status)
                                 item.download_progress = 100;
                             mLivePhotoAdapter.notifyDataSetInvalidated();
                             break;
@@ -326,7 +327,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
 
                     break;
                 case RequestDownloadInfo.STATUS_COMPLETE:
-                    if(appInfo.getStatus() != RequestDownloadInfo.STATUS_COMPLETE) {
+                    if (appInfo.getStatus() != RequestDownloadInfo.STATUS_COMPLETE) {
                         Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getName() + " 下载完成。", Toast.LENGTH_SHORT).show();
                     }
                     appInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
@@ -343,7 +344,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                     appInfo.setDownloadPerSize(tmpInfo.getDownloadPerSize());
                     break;
                 case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
-                    if(appInfo.getStatus() != RequestDownloadInfo.STATUS_DOWNLOAD_ERROR) {
+                    if (appInfo.getStatus() != RequestDownloadInfo.STATUS_DOWNLOAD_ERROR) {
                         Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getName() + " 下载错误。", Toast.LENGTH_SHORT).show();
                     }
                     appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);

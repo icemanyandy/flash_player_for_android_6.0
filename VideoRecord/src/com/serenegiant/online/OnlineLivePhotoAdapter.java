@@ -27,18 +27,15 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 	List<String> mPhotoImagePath = new ArrayList<String>();
 	private LayoutInflater inflater = null;
 	List<OnlineLivePhotoItem> itemList;
-	boolean useDefaultImg = false;
 	public OnlineLivePhotoAdapter(Context context,List<OnlineLivePhotoItem> list) {
 		mContext = context;
 		inflater = LayoutInflater.from(context);
 		initImageLoader(context);
 		itemList = list;
-		useDefaultImg = true;
  	}
 
 	public void setList(List<OnlineLivePhotoItem> list){
 		itemList = list;
-		useDefaultImg = true;
 	}
 
 	public List<OnlineLivePhotoItem> getItemList(){
@@ -99,6 +96,7 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 			holder.tv = (TextView) convertView.findViewById(R.id.itemName);
 			holder.img = (ImageView) convertView.findViewById(R.id.itemImage);
 			holder.progressBar = (ProgressBar) convertView.findViewById(R.id.itemProgress);
+			holder.price = (TextView) convertView.findViewById(R.id.itemPrice);
 			convertView.setTag(holder);
 		} else {
 			holder = (Holder) convertView.getTag();
@@ -107,14 +105,27 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
   		holder.tv.setText(item.title);
 		holder.progressBar.setProgress(item.download_progress);
 
-		if(useDefaultImg) {
-			//holder.img.setImageResource(R.drawable.default_pic_nine);
+		Float money = item.getFloatMoney();
+		if( money == 0f || money == -1){
+			holder.price.setText("免费");
+			if(money == -1) {
+				holder.price.setVisibility(View.INVISIBLE);
+			}else{
+				holder.price.setVisibility(View.VISIBLE);
+			}
+			holder.price.setBackgroundResource(R.drawable.price_tag_unselect);
+		}else if(money == -2f){
+			holder.price.setText("限免");
+			holder.price.setVisibility(View.VISIBLE);
+			holder.price.setBackgroundResource(R.drawable.price_tag_unselect);
+		}else {
+			holder.price.setText("¥"+money);
+			holder.price.setVisibility(View.VISIBLE);
+			holder.price.setBackgroundResource(R.drawable.price_tag_select);
 		}
 		String imgURl = item.picUrl;
 		//ImageLoader.getInstance().displayImage(imgURl, holder.img);
-		if(position == getCount()-1){
-			useDefaultImg = false;
-		}
+
 
 		if(item.download_state == RequestDownloadInfo.STATUS_CONNECTING){
 			holder.progressBar.setBackgroundColor(Color.YELLOW);
@@ -132,6 +143,7 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		TextView tv = null;
 		ImageView img = null;
 		ProgressBar progressBar;
+		TextView price;
 	}
 
 }

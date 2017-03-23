@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
@@ -24,6 +25,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class LivePhotoAdapter extends BaseAdapter {
+	private static DisplayImageOptions options;
 	Context mContext;
 	final File iLivePhotoDir;
 	String unitstring = null;
@@ -119,6 +121,12 @@ public class LivePhotoAdapter extends BaseAdapter {
 				//.writeDebugLogs() // Remove
 				.build();
 		ImageLoader.getInstance().init(config);
+		options = new DisplayImageOptions.Builder()
+				.showImageForEmptyUri(R.drawable.default_pic_nine) // 设置图片Uri为空或是错误的时候显示的图片
+				.showImageOnFail(R.drawable.default_pic_nine) // 设置图片加载或解码过程中发生错误显示的图片
+				.cacheInMemory(true) // 设置下载的图片是否缓存在内存中
+				.cacheOnDisc(true) // 设置下载的图片是否缓存在SD卡中
+				.build();
 	}
 
 	public int getLivePhotoNums() {
@@ -158,7 +166,7 @@ public class LivePhotoAdapter extends BaseAdapter {
 		String dirFull = iLivePhotoDir.getPath() + "/" + mPhotoImagePath.get(position);
 		Log.e("yangdi", "tv " + mPhotoImagePath.get(position));
 		Log.e("yangdi", "getView " + dirFull);
-		ImageLoader.getInstance().displayImage("file:///" + dirFull, holder.img);
+		ImageLoader.getInstance().displayImage("file:///" + dirFull, holder.img,options);
 		return convertView;
 	}
 

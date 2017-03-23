@@ -34,6 +34,15 @@ public  class OnlineLivePhotoItem implements Comparable {
         }
     }
 
+    public Float getFloatMoney(){
+        Float defaut = new Float(0.0f);
+        try{
+           return Float.valueOf(payMoney);
+        }catch (Exception e){
+
+        }
+        return defaut;
+    }
 
     @Override
     public int compareTo(Object another) {
