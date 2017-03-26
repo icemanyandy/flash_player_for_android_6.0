@@ -12,6 +12,7 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import com.aspsine.multithreaddownload.util.L;
 import com.serenegiant.audiovideosample.R;
+import com.serenegiant.audiovideosample.SettingTool;
 
 import java.io.File;
 
@@ -107,6 +108,7 @@ public class DownloadService extends Service {
     }
 
     private void download(RequestDownloadInfo RequestDownloadInfo, String tag) {
+        SettingTool.init(getApplication());
         String url = RequestDownloadInfo.getUrl();
         String addon="";
         int index = -1;
@@ -216,7 +218,7 @@ public class DownloadService extends Service {
         }
 
         @Override
-        public void onCompleted() {
+        public synchronized void onCompleted() {
 
             String url = mRequestDownloadInfo.getUrl();
             String addon="";
@@ -233,8 +235,17 @@ public class DownloadService extends Service {
                 NewFile.delete();
             }
             boolean ret = lastFile.renameTo(NewFile);
+            if(!ret) {
+                for (int i = 0; i < 3; i++) {
+                    ret = lastFile.renameTo(NewFile);
+                    if (ret == true) {
+                        break;
+                    }
+                }
+            }
 
             if(ret) {
+                SettingTool.getInstance().setData(name,true);
                 L.i(TAG, "onCompleted()");
                 mBuilder.setContentText("Download Complete");
                 mBuilder.setProgress(0, 0, false);
@@ -245,6 +256,8 @@ public class DownloadService extends Service {
                 mRequestDownloadInfo.setProgress(100);
                 sendBroadCast(mRequestDownloadInfo);
             }else{
+                L.i(TAG, "onCompleted() rename erro");
+
                 mBuilder.setContentText("Download Failed");
                 mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download failed");
                 mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
@@ -289,7 +302,7 @@ public class DownloadService extends Service {
 
         @Override
         public void onFailed(DownloadException e) {
-            L.i(TAG, "onFailed()");
+            L.i(TAG, "onFailed() ");
             e.printStackTrace();
             mBuilder.setContentText("Download Failed");
             mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download failed");

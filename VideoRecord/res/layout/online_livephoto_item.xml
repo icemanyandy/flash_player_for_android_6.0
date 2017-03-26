@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/itemImage"
         android:layout_width="fill_parent"
-        android:layout_height="160dp"
+        android:layout_height="170dp"
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY" >
     </ImageView>

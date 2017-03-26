@@ -141,6 +141,11 @@ public class SettingTool {
         editor.commit();
     }
 
+    public static void clearKey(String key){
+        editor.remove(key);
+        editor.commit();
+    }
+
     public static int getData(String key, int defValue) {
         return settings.getInt(key, defValue);
     }

@@ -34,8 +34,11 @@ public class PhotoHelpTools {
         return true;
     }
 
-    public String getLivePhotoDirPath(){
+    public static File getLivePhotoDirPath(){
         File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), LIVEPHOTO_DIR_NAME);
-        return  dir.getPath();
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return  dir;
     }
 }

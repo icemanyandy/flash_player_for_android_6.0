@@ -36,7 +36,8 @@ public class TakeLivePhotoMainActivity extends Activity {
 	 @Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		 setContentView(R.layout.activity_main);
+		 SettingTool.init(getApplication());
 		 if(Build.VERSION.SDK_INT >= 23) {
 			 requestPermission();
 		 }

@@ -15,6 +15,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.serenegiant.glutils.FileNameUtils;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -77,7 +78,11 @@ public class LivePhotoAdapter extends BaseAdapter {
 			if (f.isDirectory()) {
 				continue;
 			} else if (name.endsWith(".jpg")) {
-				mPhotoImagePath.add(name);
+				String tname = name.substring(0, name.indexOf(".jpg"));
+				boolean ret = SettingTool.getInstance().getData(tname,false);
+				if(ret) {
+					mPhotoImagePath.add(name);
+				}
 			}
 		}
 	}
@@ -90,28 +95,7 @@ public class LivePhotoAdapter extends BaseAdapter {
 	}
 
 	public String getVideoPath(String path) {
-		String defText = path;
-		String defaultName = defText.replace(".jpg", ".mp4");
-		File defFile = new File(defaultName);
-		if (defFile.exists()) {
-			return defFile.getPath();
-		}
-		List<String> supportVideo = new ArrayList<>();
-		supportVideo.add(".mov");
-		supportVideo.add(".mkv");
-		supportVideo.add(".wmv");
-		supportVideo.add(".avi");
-		supportVideo.add(".mpg");
-		supportVideo.add(".mpeg");
-		supportVideo.add(".dat");
-		supportVideo.add(".3gp");
-		for(String sv:supportVideo) {
-			defFile = new File(defText.replace(".jpg", sv));
-			if (defFile.exists()) {
-				return defFile.getPath();
-			}
-		}
-		return null;
+		return FileNameUtils.getVideoPath(path);
 	}
 
 	public static void initImageLoader(Context context) {
@@ -122,7 +106,7 @@ public class LivePhotoAdapter extends BaseAdapter {
 				.build();
 		ImageLoader.getInstance().init(config);
 		options = new DisplayImageOptions.Builder()
-				.showImageForEmptyUri(R.drawable.default_pic_nine) // 设置图片Uri为空或是错误的时候显示的图片
+				//.showImageForEmptyUri(R.drawable.default_pic_nine) // 设置图片Uri为空或是错误的时候显示的图片
 				.showImageOnFail(R.drawable.default_pic_nine) // 设置图片加载或解码过程中发生错误显示的图片
 				.cacheInMemory(true) // 设置下载的图片是否缓存在内存中
 				.cacheOnDisc(true) // 设置下载的图片是否缓存在SD卡中

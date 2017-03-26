@@ -22,19 +22,21 @@ package com.serenegiant.encoder;
  * All files in the folder are under this Apache License, Version 2.0.
 */
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.serenegiant.audiovideosample.SettingTool;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class MediaMuxerWrapper {
 	private static final boolean DEBUG = false;	// TODO set false on release
@@ -189,7 +191,9 @@ public class MediaMuxerWrapper {
 		Log.d(TAG, "path=" + dir.toString());
 		dir.mkdirs();
         if (dir.canWrite()) {
-        	mOutputPathName = dir.getPath()+ "/" + getDateTimeString();
+			String filename = getDateTimeString();
+			SettingTool.getInstance().setData(filename,true);
+        	mOutputPathName = dir.getPath()+ "/" + filename;
         	return new File(mOutputPathName + ext);
         }
     	return null;
@@ -201,7 +205,7 @@ public class MediaMuxerWrapper {
      */
     private static final String getDateTimeString() {
     	final GregorianCalendar now = new GregorianCalendar();
-    	return "IMG_"+mDateTimeFormat.format(now.getTime());
+    	return "rec_"+mDateTimeFormat.format(now.getTime());
     }
 
 }

@@ -92,4 +92,28 @@
         android:text="在线资源"
         android:textColor="#008001"
         android:textSize="18sp" />
+    <LinearLayout
+        android:id="@+id/nofile_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+         android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nofile_backgroud" />
+        <TextView
+            android:text="没找到Livephoto\n去在线资源里面找找吧。"
+            android:textColor="#ccc500"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
 </RelativeLayout>

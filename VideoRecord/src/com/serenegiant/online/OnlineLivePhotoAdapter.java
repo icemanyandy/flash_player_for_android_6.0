@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.serenegiant.audiovideosample.R;
+import com.serenegiant.glutils.FileNameUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,22 +44,13 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 	}
 	DisplayImageOptions options;
 	public void initImageLoader(Context context) {
-//		BitmapFactory.Options ops = new BitmapFactory.Options();
-//		ops.inJustDecodeBounds = true;
-//		ops.inPreferredConfig = Bitmap.Config.ARGB_8888;
-//		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
-//   		                     .imageScaleType(ImageScaleType.EXACTLY) // default
-//		                     .bitmapConfig(Bitmap.Config.ARGB_8888) // default
-//							.decodingOptions(ops)
-//				.build();
-
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
 				.threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()//.defaultDisplayImageOptions(displayImageOptions)
 				.discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO)
 				.build();
 		ImageLoader.getInstance().init(config);
 
-		options = new DisplayImageOptions.Builder()
+		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.default_pic_nine)
 				.showImageForEmptyUri(R.drawable.default_pic_nine) // 设置图片Uri为空或是错误的时候显示的图片
 				.showImageOnFail(R.drawable.default_pic_nine) // 设置图片加载或解码过程中发生错误显示的图片
 				.cacheInMemory(true) // 设置下载的图片是否缓存在内存中
@@ -80,6 +72,18 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		 if(itemList != null && arg0<itemList.size())
 			 return itemList.get(arg0);
 		return  null;
+	}
+
+	public void updateFileState(){
+		if(itemList != null){
+			for(OnlineLivePhotoItem item : itemList){
+				String videoPath = FileNameUtils.getVideoPathByName(item.title);
+				if(videoPath != null){
+					item.download_progress = 100;
+					item.download_state = RequestDownloadInfo.STATUS_COMPLETE;
+				}
+			}
+		}
 	}
 
 	@Override
@@ -105,6 +109,19 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
   		holder.tv.setText(item.title);
 		holder.progressBar.setProgress(item.download_progress);
 
+		String imgURl = item.picUrl;
+		//ImageLoader.getInstance().displayImage(imgURl, holder.img);
+
+
+		if(item.download_state == RequestDownloadInfo.STATUS_CONNECTING){
+			holder.progressBar.setBackgroundColor(Color.YELLOW);
+		}else if(item.download_state == RequestDownloadInfo.STATUS_DOWNLOAD_ERROR
+				|| item.download_state == RequestDownloadInfo.STATUS_NOT_DOWNLOAD){
+			holder.progressBar.setBackgroundColor(Color.RED);
+		}else{
+			holder.progressBar.setBackgroundColor(Color.TRANSPARENT);
+		}
+
 		Float money = item.getFloatMoney();
 		if( money == 0f || money == -1){
 			holder.price.setText("免费");
@@ -123,18 +140,12 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 			holder.price.setVisibility(View.VISIBLE);
 			holder.price.setBackgroundResource(R.drawable.price_tag_select);
 		}
-		String imgURl = item.picUrl;
-		//ImageLoader.getInstance().displayImage(imgURl, holder.img);
-
-
-		if(item.download_state == RequestDownloadInfo.STATUS_CONNECTING){
-			holder.progressBar.setBackgroundColor(Color.YELLOW);
-		}else if(item.download_state == RequestDownloadInfo.STATUS_DOWNLOAD_ERROR
-				|| item.download_state == RequestDownloadInfo.STATUS_NOT_DOWNLOAD){
-			holder.progressBar.setBackgroundColor(Color.RED);
-		}else{
-			holder.progressBar.setBackgroundColor(Color.TRANSPARENT);
+		if(item.download_state == RequestDownloadInfo.STATUS_COMPLETE) {
+			holder.price.setText("已下载");
+			holder.price.setVisibility(View.VISIBLE);
+			holder.price.setBackgroundResource(R.drawable.price_tag_yellow);
 		}
+
 		ImageLoader.getInstance().displayImage(imgURl, holder.img, options);
 		return convertView;
 	}

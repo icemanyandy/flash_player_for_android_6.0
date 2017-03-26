@@ -33,14 +33,15 @@ public class LivePhotosActivity extends Activity {
     LivePhotoAdapter mLivePhotoAdapter;
     SelectPicPopupWindow dddd = null;
     String currentPath;
+    View nofileLayout;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.livephoto_mainlayout);
-        SettingTool.init(this);
+        SettingTool.init(getApplication());
         mGridView = (GridView) this.findViewById(R.id.gridview_photos);
-
+        nofileLayout = this.findViewById(R.id.nofile_layout);
         View onlineview  = this.findViewById(R.id.title_online);
         onlineview.setOnClickListener(new View.OnClickListener(){
 
@@ -65,7 +66,6 @@ public class LivePhotosActivity extends Activity {
                                 if (v.getId() == R.id.btn_take_photo) {
                                     Intent i = new Intent();
                                     i.setClass(LivePhotosActivity.this, FullscreenVlcPlayer.class);
-                                    //ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");
                                     i.putExtra("url", mLivePhotoAdapter.getVideoPath(position));
                                     i.putExtra("img", mLivePhotoAdapter.getImagePath(position));
                                     startActivity(i);
@@ -89,6 +89,11 @@ public class LivePhotosActivity extends Activity {
                                             }
                                             mLivePhotoAdapter.loadImageList();
                                             mLivePhotoAdapter.notifyDataSetChanged();
+                                            if(mLivePhotoAdapter.getCount()>0){
+                                                nofileLayout.setVisibility(View.GONE);
+                                            }else{
+                                                nofileLayout.setVisibility(View.VISIBLE);
+                                            }
                                             Toast.makeText(LivePhotosActivity.this, "删除" + (ret ? "成功" : "失败"), Toast.LENGTH_SHORT).show();
 
                                         }
@@ -126,6 +131,11 @@ public class LivePhotosActivity extends Activity {
         super.onResume();
         mLivePhotoAdapter = new LivePhotoAdapter(this);
         mGridView.setAdapter(mLivePhotoAdapter);
+        if(mLivePhotoAdapter.getCount()>0){
+            nofileLayout.setVisibility(View.GONE);
+        }else{
+            nofileLayout.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onClick(View v) {
