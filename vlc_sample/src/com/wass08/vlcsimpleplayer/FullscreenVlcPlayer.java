@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import net.qiujuer.genius.blur.StackBlur;
 
@@ -37,6 +38,8 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
     ValueAnimator animator;
     private boolean isBlured = false;
 
+    ProgressBar mProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,7 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
         setContentView(R.layout.activity_fullscreen_vlc_player);
 
 
-        if (savedInstanceState == null && false ) {//debug LivePhotoFragment
+        if (savedInstanceState == null && false) {//debug LivePhotoFragment
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new LivePhotoFragment()).commit();
             return;
@@ -61,6 +64,7 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
 
         mImageBlur = (ImageView) this.findViewById(R.id.img_blur);
         mImageOrg = (ImageView) this.findViewById(R.id.img_org);
+        mProgressBar = (ProgressBar) this.findViewById(R.id.loadingprogress);
         //vlcVideoView.setOnClickListener(this);
         //mImageBlur.setOnClickListener(this);
         mImageOrg.setOnClickListener(this);
@@ -69,7 +73,11 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
 
             @Override
             public void eventBuffing(float buffing, boolean show) {
-
+                if (!show) {
+                    mProgressBar.setVisibility(View.GONE);
+                } else if(urlToStream.startsWith("http")){
+                    mProgressBar.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

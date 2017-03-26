@@ -64,7 +64,7 @@ public class AndroidUtil {
     }
 
     public static boolean isMarshMallowOrLater() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+        return Build.VERSION.SDK_INT >= 23;
     }
 
     public static File UriToFile(Uri uri) {
