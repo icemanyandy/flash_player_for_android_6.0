@@ -50,7 +50,7 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 				.build();
 		ImageLoader.getInstance().init(config);
 
-		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.default_pic_nine)
+		options = new DisplayImageOptions.Builder() //.showImageOnLoading(R.drawable.default_pic_nine)
 				.showImageForEmptyUri(R.drawable.default_pic_nine) // 设置图片Uri为空或是错误的时候显示的图片
 				.showImageOnFail(R.drawable.default_pic_nine) // 设置图片加载或解码过程中发生错误显示的图片
 				.cacheInMemory(true) // 设置下载的图片是否缓存在内存中
@@ -112,7 +112,7 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		String imgURl = item.picUrl;
 		//ImageLoader.getInstance().displayImage(imgURl, holder.img);
 
-
+		holder.img.setBackgroundResource(R.drawable.default_pic_nine);
 		if(item.download_state == RequestDownloadInfo.STATUS_CONNECTING){
 			holder.progressBar.setBackgroundColor(Color.YELLOW);
 		}else if(item.download_state == RequestDownloadInfo.STATUS_DOWNLOAD_ERROR

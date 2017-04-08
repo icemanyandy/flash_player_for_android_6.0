@@ -109,7 +109,11 @@ public class LivePhotosActivity extends Activity {
                                 } else if (v.getId() == R.id.btn_pick_photo) {
                                     SettingTool.setData("livephoto_path_img", mLivePhotoAdapter.getImagePath(position));
                                     SettingTool.setData("livephoto_path_video", mLivePhotoAdapter.getVideoPath(position));
-                                    Toast.makeText(LivePhotosActivity.this, "恭喜您，已经设定成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LivePhotosActivity.this, "恭喜您，LivePhoto设定成功", Toast.LENGTH_SHORT).show();
+                                } else if(v.getId() == R.id.btn_pick_photo_static){
+                                    SettingTool.setData("livephoto_path_img", mLivePhotoAdapter.getImagePath(position));
+                                    SettingTool.setData("livephoto_path_video", "");
+                                    Toast.makeText(LivePhotosActivity.this, "恭喜您，壁纸设定成功", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -149,7 +153,7 @@ public class LivePhotosActivity extends Activity {
 
     public class SelectPicPopupWindow extends PopupWindow {
 
-        private Button btn_take_photo, btn_pick_photo, btn_cancel, btn_delete;
+        private Button btn_take_photo, btn_pick_photo, btn_cancel, btn_delete,btn_pick_photo_static;
         private View mMenuView;
 
         public SelectPicPopupWindow(Activity context, OnClickListener itemsOnClick) {
@@ -158,6 +162,7 @@ public class LivePhotosActivity extends Activity {
             mMenuView = inflater.inflate(R.layout.livephoto_pop_menu, null);
             btn_take_photo = (Button) mMenuView.findViewById(R.id.btn_take_photo);
             btn_pick_photo = (Button) mMenuView.findViewById(R.id.btn_pick_photo);
+            btn_pick_photo_static   = (Button) mMenuView.findViewById(R.id.btn_pick_photo_static);
             btn_delete = (Button) mMenuView.findViewById(R.id.btn_delete);
             btn_cancel = (Button) mMenuView.findViewById(R.id.btn_cancel);
             btn_cancel.setOnClickListener(new OnClickListener() {
@@ -177,6 +182,7 @@ public class LivePhotosActivity extends Activity {
             btn_pick_photo.setOnClickListener(itemsOnClick);
             btn_take_photo.setOnClickListener(itemsOnClick);
             btn_delete.setOnClickListener(itemsOnClick);
+            btn_pick_photo_static.setOnClickListener(itemsOnClick);
             // 设置SelectPicPopupWindow的View
             this.setContentView(mMenuView);
             this.setBackgroundDrawable(null);

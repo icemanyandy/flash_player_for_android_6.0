@@ -27,18 +27,39 @@
             android:text="预览"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_pick_photo"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
             android:layout_marginTop="10dip"
-            android:text="设定"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_pick_photo_static"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dip"
+                android:text="设置静态壁纸"
+                android:layout_weight="1"
+                android:alpha="0.7"
+                android:textSize="14dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/popwindow_button_background"
+                android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_pick_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:text="设置动态壁纸"
             android:textSize="14dp"
             android:textColor="@android:color/white"
             android:background="@drawable/popwindow_button_background"
             android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView_tips"
@@ -69,6 +90,7 @@
                 android:textSize="14dp"
                  android:background="@drawable/popwindow_button_background"
                 android:text="删除"
+                android:alpha="0.7"
                 android:textColor="#C0ff4444"
                 android:textStyle="bold" />
 
