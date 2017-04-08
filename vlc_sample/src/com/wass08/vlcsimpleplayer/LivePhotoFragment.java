@@ -204,10 +204,14 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
     }
 
     private void initBlur() {
-        if (TextUtils.isEmpty(urlImage)) {
-            mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.imgbk, getBitmapOptions(getActivity()));
+        if (TextUtils.isEmpty(urlImage) || urlImage.equals("default_picture")) {
+            mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.default_picture, getBitmapOptions(getActivity()));
         } else {
             mBitmap = BitmapFactory.decodeFile(urlImage, getBitmapOptions(getActivity()));
+        }
+        if(TextUtils.isEmpty(urlToStream) || urlToStream.equals("default_video")){
+            String printTxtPath = getActivity().getApplicationContext().getFilesDir().getParent()+"/lib/libdefault_livephoto.so";
+            urlToStream = printTxtPath;//"file:///android_asset/default_livephoto.mov";
         }
         mImageOrg.setImageBitmap(mBitmap);
         // 压缩并保存位图

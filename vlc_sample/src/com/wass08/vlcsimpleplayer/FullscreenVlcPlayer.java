@@ -161,7 +161,7 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
 
     private void initBlur() {
         if (TextUtils.isEmpty(urlImage)) {
-            mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.imgbk, getBitmapOptions(this));
+            mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.default_picture, getBitmapOptions(this));
         } else {
             mBitmap = BitmapFactory.decodeFile(urlImage, getBitmapOptions(this));
         }

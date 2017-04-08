@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wass08.vlcsimpleplayer.test.ProductVideoPlayerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/videolayout"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical">
+
+    <com.wass08.vlcsimpleplayer.test.ProductVideoView
+        android:id="@+id/video_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</com.wass08.vlcsimpleplayer.test.ProductVideoPlayerLayout>
