@@ -75,7 +75,7 @@ public class FullscreenVlcPlayer extends Activity implements View.OnClickListene
             public void eventBuffing(float buffing, boolean show) {
                 if (!show) {
                     mProgressBar.setVisibility(View.GONE);
-                } else if(urlToStream.startsWith("http")){
+                } else if (urlToStream.startsWith("http")) {
                     mProgressBar.setVisibility(View.VISIBLE);
                 }
             }

@@ -43,6 +43,17 @@ public class VlcVideoView extends TextureView implements MediaPlayerControl, Tex
         videoMediaLogic.setMediaListenerEvent(mediaListenerEvent);
     }
 
+    public void setVolume(int volume){
+        if(videoMediaLogic != null)
+            videoMediaLogic.setVolume(volume);
+    }
+
+    public int getVolume(){
+        if(videoMediaLogic != null)
+            videoMediaLogic.getVolume();
+        return 0;
+    }
+
     @Override
     public boolean canControl() {
         return videoMediaLogic.canControl();

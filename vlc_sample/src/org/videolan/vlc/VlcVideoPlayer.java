@@ -49,6 +49,17 @@ public class VlcVideoPlayer implements MediaPlayerControl, Handler.Callback, IVL
         sThread.start();
     }
 
+    public void setVolume(int volume){
+        if(mMediaPlayer != null)
+             mMediaPlayer.setVolume(volume);
+    }
+
+    public int getVolume(){
+        if(mMediaPlayer != null)
+            mMediaPlayer.getVolume();
+        return 0;
+    }
+
     private static boolean isInstance = true;//是否单例播放   默认开
     private static boolean isSaveState;//跳转界面时 信息保存
 
