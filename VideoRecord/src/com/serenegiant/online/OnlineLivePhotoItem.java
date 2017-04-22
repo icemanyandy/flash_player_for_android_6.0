@@ -18,6 +18,7 @@ public  class OnlineLivePhotoItem implements Comparable {
     //内部更新
     public int download_progress = 0;
     public int download_state = -1;
+    public boolean payed = false; //该视频是否已经付费
     public OnlineLivePhotoItem(String sp[],String theadURL){
         if(sp == null||sp.length<5)
             return;

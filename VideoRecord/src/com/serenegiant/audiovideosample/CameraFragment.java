@@ -37,6 +37,7 @@ import com.serenegiant.encoder.MediaAudioEncoder;
 import com.serenegiant.encoder.MediaEncoder;
 import com.serenegiant.encoder.MediaMuxerWrapper;
 import com.serenegiant.encoder.MediaVideoEncoder;
+import com.serenegiant.online.OnlineLivePhotosActivity;
 
 import java.io.IOException;
 
@@ -84,8 +85,10 @@ public class CameraFragment extends Fragment {
 		ImageButton record_exit = (ImageButton)rootView.findViewById(R.id.record_exit);
 		record_exit.setOnClickListener(mOnClickListener);		
 		ImageButton record_menu = (ImageButton)rootView.findViewById(R.id.record_menu);
-		record_menu.setOnClickListener(mOnClickListener);		
-		
+		record_menu.setOnClickListener(mOnClickListener);
+		ImageButton record_online = (ImageButton)rootView.findViewById(R.id.record_online);
+		record_online.setOnClickListener(mOnClickListener);
+
 		return rootView;
 	}
 
@@ -127,6 +130,12 @@ public class CameraFragment extends Fragment {
 			}else if(id ==  R.id.record_menu ){
  				if(getActivity() != null){
 					Intent intent = new Intent(getActivity(), LivePhotosActivity.class);
+					getActivity().startActivity(intent);
+				}
+			}
+			else if(id ==  R.id.record_online ){
+				if(getActivity() != null){
+					Intent intent = new Intent(getActivity(), OnlineLivePhotosActivity.class);
 					getActivity().startActivity(intent);
 				}
 			}

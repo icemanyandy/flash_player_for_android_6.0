@@ -173,7 +173,8 @@ public class LivePhotosActivity extends Activity {
             });
             TextView tipsv = (TextView) mMenuView.findViewById(R.id.textView_tips);
             if (!TextUtils.isEmpty(currentPath)) {
-                tipsv.setText(currentPath);
+                currentPath = currentPath.replace("/storage/emulated/0","/sdcard");
+                tipsv.setText("Livephoto@"+currentPath);
                 this.setHeight(dip2px(context, 200));
             } else {
                 this.setHeight(dip2px(context, 180));

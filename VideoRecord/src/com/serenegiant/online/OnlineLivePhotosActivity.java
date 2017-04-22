@@ -81,7 +81,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
     public void fillData(String data) {
         if (data == null || false) {
             data = ParseOnlineString.getTestAssertFile(this);
-            Toast.makeText(this, "本地测试", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "网络未通，载入本地资源", Toast.LENGTH_SHORT).show();
         }
         mParseOnlineTool = new ParseOnlineString(data);
 
@@ -145,8 +145,15 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 final String downloadURL = livePhotoItem.videoUrl;
                 final String imageURL = livePhotoItem.picUrl;
                 boolean donwloaded = livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE;
+                String showtext = "下载 "+livePhotoItem.title;
+                if(livePhotoItem.getFloatMoney()>0f){
+                    showtext = "支付¥"+livePhotoItem.getFloatMoney()+" 可下载 "+livePhotoItem.title;
+                }
+                if(donwloaded){
+                    showtext = "设置 "+livePhotoItem.title+" 为动态壁纸";
+                }
                 final ImageView imgView = (ImageView) view.findViewById(R.id.itemImage);
-                SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this,donwloaded, new View.OnClickListener() {
+                SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this,showtext, new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -166,6 +173,8 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                     Toast.makeText(OnlineLivePhotosActivity.this, "恭喜您，LivePhoto设定成功", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
+                            }else if(livePhotoItem.getFloatMoney()>0f){//并且未
+
                             }
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 // PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
@@ -200,11 +209,11 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
                             } else {
-                                Toast.makeText(OnlineLivePhotosActivity.this, "图片还未下载显示呢，请稍等。", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OnlineLivePhotosActivity.this, "图片还未下载显示呢，请稍等。", Toast.LENGTH_LONG).show();
                                 return;
                             }
 
-                            Toast.makeText(OnlineLivePhotosActivity.this, "高清livephoto只有下载后再预览哦~", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OnlineLivePhotosActivity.this, "高清livephoto只有下载后再预览哦~", Toast.LENGTH_LONG).show();
                             i.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
                             String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                             i.putExtra("img", localImage);
@@ -277,7 +286,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
         private Button btn_download, btn_preview, btn_cancel;
         private View mMenuView;
 
-        public SelectPicPopupWindow(Activity context,boolean downloaded , OnClickListener itemsOnClick) {
+        public SelectPicPopupWindow(Activity context,String showText , OnClickListener itemsOnClick) {
             super(context);
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mMenuView = inflater.inflate(R.layout.online_livephoto_pop_menu, null);
@@ -290,8 +299,8 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                     dismiss();
                 }
             });
-            if(downloaded == true){
-                btn_download.setText("设置壁纸");
+            if(!TextUtils.isEmpty(showText)){
+                btn_download.setText(showText);
             }
             TextView tipsv = (TextView) mMenuView.findViewById(R.id.textView_tips);
             if (!TextUtils.isEmpty(currentPath)) {
