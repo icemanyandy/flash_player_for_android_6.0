@@ -35,6 +35,7 @@ import com.aspsine.multithreaddownload.RequestDownloadInfo;
 import com.serenegiant.audiovideosample.BaseActivity;
 import com.serenegiant.audiovideosample.LivePhotosActivity;
 import com.serenegiant.audiovideosample.R;
+import com.serenegiant.audiovideosample.SettingTool;
 import com.serenegiant.glutils.FileNameUtils;
 import com.serenegiant.glutils.PhotoHelpTools;
 import com.wass08.vlcsimpleplayer.FullscreenVlcPlayer;
@@ -143,28 +144,29 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 final OnlineLivePhotoItem livePhotoItem = mLivePhotoAdapter.getItem(position);
                 final String downloadURL = livePhotoItem.videoUrl;
                 final String imageURL = livePhotoItem.picUrl;
-                if (livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE) {
-                    Intent i = new Intent();
-                    i.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
-                    //ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");
-                    String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
-                    String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
-                    if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
-                        Toast.makeText(OnlineLivePhotosActivity.this, "iLivephoto预览失败，请重新下载重试。", Toast.LENGTH_SHORT).show();
-                    }else {
-                        i.putExtra("url", localVideo);
-                        i.putExtra("img", localImage);
-                        startActivity(i);
-                        return;
-                    }
-                }
+                boolean donwloaded = livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE;
                 final ImageView imgView = (ImageView) view.findViewById(R.id.itemImage);
-                SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this, new View.OnClickListener() {
+                SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this,donwloaded, new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
                         dddd.dismiss();
                         if (v.getId() == R.id.btn_download) {
+                            if (livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE) {
+                                Intent inew = new Intent();
+                                inew.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
+                                //ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");
+                                String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
+                                String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
+                                if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
+                                    Toast.makeText(OnlineLivePhotosActivity.this, "sorry，LivePhoto设定失败。开始重新下载。。。", Toast.LENGTH_SHORT).show();
+                                 }else {
+                                    SettingTool.setData("livephoto_path_img", localImage);
+                                    SettingTool.setData("livephoto_path_video", localVideo);
+                                    Toast.makeText(OnlineLivePhotosActivity.this, "恭喜您，LivePhoto设定成功", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                            }
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 // PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
                             } else {
@@ -177,6 +179,23 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                             RequestDownloadInfo requestPhotoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title, livePhotoItem.title + " 壁纸", imageURL);
                             DownloadService.intentDownload(OnlineLivePhotosActivity.this, requestPhotoDownloadInfo.getShowName(), requestPhotoDownloadInfo);
                         } else if (v.getId() == R.id.btn_preview) {
+                            if (livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE) {//本地预览。
+                                Intent inew = new Intent();
+                                inew.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
+                                //ComponentName com= new ComponentName( "com.wass08.vlcsimpleplayer" , "com.wass08.vlcsimpleplayer.FullscreenVlcPlayer");
+                                String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
+                                String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
+                                if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
+                                    Toast.makeText(OnlineLivePhotosActivity.this, "iLivephoto预览失败，请重新下载重试。", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }else {
+                                    inew.putExtra("url", localVideo);
+                                    inew.putExtra("img", localImage);
+                                    startActivity(inew);
+                                    return;
+                                }
+                            }
+
                             Intent i = new Intent();
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
@@ -184,6 +203,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 Toast.makeText(OnlineLivePhotosActivity.this, "图片还未下载显示呢，请稍等。", Toast.LENGTH_SHORT).show();
                                 return;
                             }
+
                             Toast.makeText(OnlineLivePhotosActivity.this, "高清livephoto只有下载后再预览哦~", Toast.LENGTH_SHORT).show();
                             i.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
                             String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
@@ -257,7 +277,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
         private Button btn_download, btn_preview, btn_cancel;
         private View mMenuView;
 
-        public SelectPicPopupWindow(Activity context, OnClickListener itemsOnClick) {
+        public SelectPicPopupWindow(Activity context,boolean downloaded , OnClickListener itemsOnClick) {
             super(context);
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mMenuView = inflater.inflate(R.layout.online_livephoto_pop_menu, null);
@@ -270,6 +290,9 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                     dismiss();
                 }
             });
+            if(downloaded == true){
+                btn_download.setText("设置壁纸");
+            }
             TextView tipsv = (TextView) mMenuView.findViewById(R.id.textView_tips);
             if (!TextUtils.isEmpty(currentPath)) {
                 tipsv.setText(currentPath);

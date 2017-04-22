@@ -22,7 +22,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nhaarman.listviewanimations.example.MyListActivity;
 import com.serenegiant.online.OnlineLivePhotosActivity;
 import com.wass08.vlcsimpleplayer.FullscreenVlcPlayer;
 
@@ -145,9 +144,10 @@ public class LivePhotosActivity extends Activity {
     public void onClick(View v) {
         if (v.getId() == R.id.backimage) {
             this.finish();
-            Intent i = new Intent(this, MyListActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
+        }else if(R.id.nofile_layout == v.getId()){
+            Intent intent = new Intent();
+            intent.setClass(LivePhotosActivity.this,OnlineLivePhotosActivity.class);
+            startActivity(intent);
         }
     }
 
