@@ -221,7 +221,7 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
         mCompressBitmap = Bitmap.createBitmap(mBitmap, 0, 0,
                 mBitmap.getWidth(), mBitmap.getHeight(), matrix, true);
 
-        mImageOrg.setAlpha(0f);
+        mImageOrg.setAlpha(1.0f);
         mImageBlur.setAlpha(0f);
         applyBlur(false, false, true);
     }
@@ -406,6 +406,7 @@ public class LivePhotoFragment extends Fragment implements View.OnClickListener 
     public Bitmap getBackGroundBitmap() {
         return mBitmap;
     }
+
 
     public void keepScreenOn(boolean on){
         //vlcVideoView.setKeepScreenOn(on);
