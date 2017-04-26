@@ -58,6 +58,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.online_livephoto_mainlayout);
         container = (ViewGroup) this.findViewById(R.id.container);
+        SettingTool.init(getApplication());
         initDownloader();
         ParseOnlineString.startLoadConfig(onLineCallBack);
         showDailog();
