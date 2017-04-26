@@ -30,8 +30,8 @@ import java.lang.reflect.Field;
 public class LivePhotoFragment extends Fragment implements View.OnClickListener {
     private static final int SCALE_FACTOR = 4;
 
-    private String urlToStream;
-    private String urlImage;
+    private String urlToStream = "default_video";
+    private String urlImage = "default_picture";
     private VlcVideoView vlcVideoView;
     private float rate = 1.0f;
     private Bitmap mBitmap;
