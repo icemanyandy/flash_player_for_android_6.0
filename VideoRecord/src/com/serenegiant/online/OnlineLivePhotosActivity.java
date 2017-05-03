@@ -82,7 +82,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
     public void fillData(String data) {
         if (data == null || false) {
             data = ParseOnlineString.getTestAssertFile(this);
-            Toast.makeText(this, "网络未通，载入本地资源", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.video_record_netnotok, Toast.LENGTH_SHORT).show();
         }
         mParseOnlineTool = new ParseOnlineString(data);
 
@@ -146,12 +146,16 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 final String downloadURL = livePhotoItem.videoUrl;
                 final String imageURL = livePhotoItem.picUrl;
                 boolean donwloaded = livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE;
-                String showtext = "下载 "+livePhotoItem.title;
+                String showtext = getResources().getString(R.string.video_record_download)+" "+livePhotoItem.title;
                 if(livePhotoItem.getFloatMoney()>0f){
-                    showtext = "支付¥"+livePhotoItem.getFloatMoney()+" 可下载 "+livePhotoItem.title;
+                    String format = getResources().getString(R.string.video_record_payforname);
+                    showtext = String.format(format,livePhotoItem.getFloatMoney(),livePhotoItem.title );
+                    //showtext = "支付¥"+livePhotoItem.getFloatMoney()+" 可下载 "+livePhotoItem.title;
                 }
                 if(donwloaded){
-                    showtext = "设置 "+livePhotoItem.title+" 为动态壁纸";
+                    String format = getResources().getString(R.string.video_record_settingname);
+                    showtext = String.format(format,livePhotoItem.title);
+                    //showtext = "设置 "+livePhotoItem.title+" 为动态壁纸";
                 }
                 final ImageView imgView = (ImageView) view.findViewById(R.id.itemImage);
                 SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(OnlineLivePhotosActivity.this,showtext, new View.OnClickListener() {
@@ -167,11 +171,11 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                                 String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
                                 if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
-                                    Toast.makeText(OnlineLivePhotosActivity.this, "sorry，LivePhoto设定失败。开始重新下载。。。", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(OnlineLivePhotosActivity.this,R.string.video_record_settingerrordownload, Toast.LENGTH_SHORT).show();
                                  }else {
                                     SettingTool.setData("livephoto_path_img", localImage);
                                     SettingTool.setData("livephoto_path_video", localVideo);
-                                    Toast.makeText(OnlineLivePhotosActivity.this, "恭喜您，LivePhoto设定成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_settingok, Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                             }else if(livePhotoItem.getFloatMoney()>0f){//并且未
@@ -196,7 +200,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                                 String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
                                 if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
-                                    Toast.makeText(OnlineLivePhotosActivity.this, "iLivephoto预览失败，请重新下载重试。", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_previewerror, Toast.LENGTH_SHORT).show();
                                     return;
                                 }else {
                                     inew.putExtra("url", localVideo);
@@ -210,11 +214,11 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
                             } else {
-                                Toast.makeText(OnlineLivePhotosActivity.this, "图片还未下载显示呢，请稍等。", Toast.LENGTH_LONG).show();
+                                Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_previewnotdownload, Toast.LENGTH_LONG).show();
                                 return;
                             }
 
-                            Toast.makeText(OnlineLivePhotosActivity.this, "高清livephoto只有下载后再预览哦~", Toast.LENGTH_LONG).show();
+                            Toast.makeText(OnlineLivePhotosActivity.this,R.string.video_record_previewtips, Toast.LENGTH_LONG).show();
                             i.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
                             String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                             i.putExtra("img", localImage);
@@ -395,7 +399,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 case RequestDownloadInfo.STATUS_COMPLETE:
                     //if (appInfo.getStatus() != RequestDownloadInfo.STATUS_COMPLETE)
                 {
-                    Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getShowName() + " 下载完成。", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getShowName() + getResources().getString(R.string.video_record_download_ok), Toast.LENGTH_SHORT).show();
                 }
                 appInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
                 appInfo.setProgress(tmpInfo.getProgress());
@@ -413,7 +417,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
                     //if (appInfo.getStatus() != RequestDownloadInfo.STATUS_DOWNLOAD_ERROR)
                 {
-                    Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getShowName() + " 下载错误,请重试。", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getShowName() +getResources().getString(R.string.video_record_download_error), Toast.LENGTH_SHORT).show();
                 }
                 appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
                 appInfo.setDownloadPerSize("");

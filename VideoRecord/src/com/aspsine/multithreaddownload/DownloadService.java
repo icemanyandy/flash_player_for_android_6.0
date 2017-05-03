@@ -141,7 +141,7 @@ public class DownloadService extends Service {
         mDownloadManager.cancelAll();
     }
 
-    public static class DownloadCallBack implements CallBack {
+    public class DownloadCallBack implements CallBack {
 
         private int mPosition;
 
@@ -168,16 +168,16 @@ public class DownloadService extends Service {
             L.i(TAG, "onStart()");
             mBuilder.setSmallIcon(R.drawable.ic_launcher_download)
                     .setContentTitle(mRequestDownloadInfo.getShowName())
-                    .setContentText("Init Download")
+                    .setContentText(getString(R.string.video_record_download_init))
                     .setProgress(100, 0, true)
-                    .setTicker("Start download " + mRequestDownloadInfo.getShowName());
+                    .setTicker(getString(R.string.video_record_download_init) + mRequestDownloadInfo.getShowName());
             updateNotification();
         }
 
         @Override
         public void onConnecting() {
             L.i(TAG, "onConnecting()");
-            mBuilder.setContentText("Connecting")
+            mBuilder.setContentText(getString(R.string.video_record_download_connect))
                     .setProgress(100, 0, true);
             updateNotification();
 
@@ -188,7 +188,7 @@ public class DownloadService extends Service {
         @Override
         public void onConnected(long total, boolean isRangeSupport) {
             L.i(TAG, "onConnected()");
-            mBuilder.setContentText("Connected")
+            mBuilder.setContentText(getString(R.string.video_record_download_connected))
                     .setProgress(100, 0, true);
             updateNotification();
         }
@@ -207,7 +207,7 @@ public class DownloadService extends Service {
             long currentTime = System.currentTimeMillis();
             if (currentTime - mLastTime > 500) {
                 L.i(TAG, "onProgress()");
-                mBuilder.setContentText("Downloading");
+                mBuilder.setContentText(getString(R.string.video_record_downloading));
                 mBuilder.setProgress(100, progress, false);
                 updateNotification();
 
@@ -245,11 +245,11 @@ public class DownloadService extends Service {
             }
 
             if(ret) {
-                SettingTool.getInstance().setData(name,true);
+                SettingTool.getInstance().setData(name, true);
                 L.i(TAG, "onCompleted()");
-                mBuilder.setContentText("Download Complete");
+                mBuilder.setContentText(DownloadService.this.getResources().getString(R.string.video_record_download_ok));
                 mBuilder.setProgress(0, 0, false);
-                mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download Complete");
+                mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " "+getString(R.string.video_record_download_ok));
                 updateNotification();
 
                 mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
@@ -258,8 +258,8 @@ public class DownloadService extends Service {
             }else{
                 L.i(TAG, "onCompleted() rename erro");
 
-                mBuilder.setContentText("Download Failed");
-                mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download failed");
+                mBuilder.setContentText(getString(R.string.video_record_download_error));
+                mBuilder.setTicker(mRequestDownloadInfo.getShowName() +" "+getString(R.string.video_record_download_error));
                 mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
                 updateNotification();
                 mRequestDownloadInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);
@@ -304,8 +304,8 @@ public class DownloadService extends Service {
         public void onFailed(DownloadException e) {
             L.i(TAG, "onFailed() ");
             e.printStackTrace();
-            mBuilder.setContentText("Download Failed");
-            mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " download failed");
+            mBuilder.setContentText(getString(R.string.video_record_download_error));
+            mBuilder.setTicker(mRequestDownloadInfo.getShowName() + " "+getString(R.string.video_record_download_error));
             mBuilder.setProgress(100, mRequestDownloadInfo.getProgress(), false);
             updateNotification();
 

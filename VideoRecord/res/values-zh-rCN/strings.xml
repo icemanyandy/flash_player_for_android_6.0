@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name11">LivePhoto录制</string>
+    <string name="action_settings">设置</string>
+    <string name="activity_loading">正在加载中...</string>
+    <string name="video_record_netnotok">获取数据失败，请稍后重试...</string>
+    <string name="video_record_download">下载</string>
+    <string name="video_record_payforname">支付¥%s后,可以下载 %s</string>
+    <string name="video_record_settingname">设置 %s 为动态壁纸</string>
+    <string name="video_record_settingerrordownload">sorry,LivePhoto设定失败，开始重新下载。。。</string>
+    <string name="video_record_settingok">恭喜您，LivePhoto设定成功</string>
+    <string name="video_record_previewerror">Livephoto预览失败，请重新下载后重试</string>
+    <string name="video_record_previewnotdownload">图片还未下载显示呢，请稍等。</string>
+    <string name="video_record_previewtips">高清Livephoto只有下载后再预览哦~</string>
+    <string name="video_record_download_ok">"下载完成"</string>
+    <string name="video_record_downloading">"下载中"</string>
+    <string name="video_record_download_init">"准备下载..."</string>
+    <string name="video_record_download_connect">"资源连接中..."</string>
+    <string name="video_record_download_connected">"资源连接成功"</string>
+    <string name="video_record_download_error">"下载错误,请重试."</string>
+</resources>
