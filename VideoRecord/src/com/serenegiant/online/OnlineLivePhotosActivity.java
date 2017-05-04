@@ -131,6 +131,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                             label = null;
                         }
                         mLivePhotoAdapter.setList(mParseOnlineTool.getItemList(label));
+                        mLivePhotoAdapter.updateFileState();
                         mLivePhotoAdapter.notifyDataSetChanged();
                     }
                 });
@@ -146,13 +147,15 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 final String downloadURL = livePhotoItem.videoUrl;
                 final String imageURL = livePhotoItem.picUrl;
                 boolean donwloaded = livePhotoItem.download_state == RequestDownloadInfo.STATUS_COMPLETE;
+
                 String showtext = getResources().getString(R.string.video_record_download)+" "+livePhotoItem.title;
-                if(livePhotoItem.getFloatMoney()>0f){
+                if(livePhotoItem.getFloatMoney()>0f && !SettingTool.getInstance().getData(livePhotoItem.title+"vip",false) && !SettingTool.getInstance().getSVIP()){
                     String format = getResources().getString(R.string.video_record_payforname);
                     showtext = String.format(format,livePhotoItem.getFloatMoney(),livePhotoItem.title );
                     //showtext = "支付¥"+livePhotoItem.getFloatMoney()+" 可下载 "+livePhotoItem.title;
                 }
                 if(donwloaded){
+
                     String format = getResources().getString(R.string.video_record_settingname);
                     showtext = String.format(format,livePhotoItem.title);
                     //showtext = "设置 "+livePhotoItem.title+" 为动态壁纸";
@@ -171,22 +174,26 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                                 String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
                                 if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
+
                                     Toast.makeText(OnlineLivePhotosActivity.this,R.string.video_record_settingerrordownload, Toast.LENGTH_SHORT).show();
                                  }else {
                                     SettingTool.setData("livephoto_path_img", localImage);
                                     SettingTool.setData("livephoto_path_video", localVideo);
+
                                     Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_settingok, Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                            }else if(livePhotoItem.getFloatMoney()>0f){//并且未
-
-                            }
-                            if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
-                                // PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
-                            } else {
-                                Toast.makeText(OnlineLivePhotosActivity.this, "图片还未下载显示呢，请稍等。", Toast.LENGTH_SHORT).show();
+                            }else if(livePhotoItem.getFloatMoney()>0f && !SettingTool.getInstance().getData(livePhotoItem.title+"vip",false) && !SettingTool.getInstance().getSVIP()){//并且未
+                                Intent intent = new Intent();
+                                intent.setAction("com.softboy.lock.payme");
+                                intent.putExtra("vodMode", true);
+                                intent.putExtra("vodName",livePhotoItem.title);
+                                intent.putExtra("vodMoney",livePhotoItem.getFloatMoney());
+                                intent.addCategory(Intent.CATEGORY_DEFAULT);
+                                startActivityForResult(intent, 0x100);
                                 return;
                             }
+
                             RequestDownloadInfo requestVideoDownloadInfo = new RequestDownloadInfo(livePhotoItem.title, livePhotoItem.title + " 视频", downloadURL);
                             DownloadService.intentDownload(OnlineLivePhotosActivity.this, requestVideoDownloadInfo.getShowName(), requestVideoDownloadInfo);
 
@@ -200,6 +207,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                                 String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
                                 if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
+
                                     Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_previewerror, Toast.LENGTH_SHORT).show();
                                     return;
                                 }else {
@@ -209,14 +217,16 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                     return;
                                 }
                             }
-
+                            //在线预览
                             Intent i = new Intent();
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");
                             } else {
+
                                 Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_previewnotdownload, Toast.LENGTH_LONG).show();
                                 return;
                             }
+
 
                             Toast.makeText(OnlineLivePhotosActivity.this,R.string.video_record_previewtips, Toast.LENGTH_LONG).show();
                             i.setClass(OnlineLivePhotosActivity.this, FullscreenVlcPlayer.class);
@@ -252,6 +262,15 @@ public class OnlineLivePhotosActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 0x100){
+            if(mLivePhotoAdapter != null){
+                mLivePhotoAdapter.notifyDataSetInvalidated();
+            }
+        }
+    }
 
     @Override
     public void onResume() {
@@ -399,6 +418,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 case RequestDownloadInfo.STATUS_COMPLETE:
                     //if (appInfo.getStatus() != RequestDownloadInfo.STATUS_COMPLETE)
                 {
+
                     Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getShowName() + getResources().getString(R.string.video_record_download_ok), Toast.LENGTH_SHORT).show();
                 }
                 appInfo.setStatus(RequestDownloadInfo.STATUS_COMPLETE);
@@ -417,6 +437,7 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                 case RequestDownloadInfo.STATUS_DOWNLOAD_ERROR:
                     //if (appInfo.getStatus() != RequestDownloadInfo.STATUS_DOWNLOAD_ERROR)
                 {
+
                     Toast.makeText(OnlineLivePhotosActivity.this, appInfo.getShowName() +getResources().getString(R.string.video_record_download_error), Toast.LENGTH_SHORT).show();
                 }
                 appInfo.setStatus(RequestDownloadInfo.STATUS_DOWNLOAD_ERROR);

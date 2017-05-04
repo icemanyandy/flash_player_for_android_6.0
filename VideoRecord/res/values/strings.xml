@@ -7,8 +7,8 @@
     <string name="video_record_netnotok">Server is off line,please retry later...</string>
 
     <string name="video_record_download">download</string>
-    <string name="video_record_payforname">pay $%s,you can download. %s</string>
-    <string name="video_record_settingname">set %s LivePhoto</string>
+    <string name="video_record_payforname">pay $%1$s,you can download. %2$s</string>
+    <string name="video_record_settingname">set %1$s LivePhoto</string>
     <string name="video_record_settingerrordownload">sorry,LivePhoto error,downloading it。。。</string>
     <string name="video_record_settingok"> Congratulations，LivePhoto set ok.</string>
     <string name="video_record_previewerror"> preview Livephoto error,try later.</string>

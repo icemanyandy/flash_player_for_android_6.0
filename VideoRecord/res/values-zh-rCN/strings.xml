@@ -6,8 +6,8 @@
     <string name="activity_loading">正在加载中...</string>
     <string name="video_record_netnotok">获取数据失败，请稍后重试...</string>
     <string name="video_record_download">下载</string>
-    <string name="video_record_payforname">支付¥%s后,可以下载 %s</string>
-    <string name="video_record_settingname">设置 %s 为动态壁纸</string>
+    <string name="video_record_payforname">支付¥%1$s后,可以下载 %2$s</string>
+    <string name="video_record_settingname">设置 %1$s 为动态壁纸</string>
     <string name="video_record_settingerrordownload">sorry,LivePhoto设定失败，开始重新下载。。。</string>
     <string name="video_record_settingok">恭喜您，LivePhoto设定成功</string>
     <string name="video_record_previewerror">Livephoto预览失败，请重新下载后重试</string>

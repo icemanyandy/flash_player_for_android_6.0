@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.serenegiant.audiovideosample.R;
+import com.serenegiant.audiovideosample.SettingTool;
 import com.serenegiant.glutils.FileNameUtils;
 
 import java.util.ArrayList;
@@ -79,8 +80,12 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 			for(OnlineLivePhotoItem item : itemList){
 				String videoPath = FileNameUtils.getVideoPathByName(item.title);
 				if(videoPath != null){
-					item.download_progress = 100;
-					item.download_state = RequestDownloadInfo.STATUS_COMPLETE;
+					if(SettingTool.getInstance().getData(item.title,false)) {
+						item.download_progress = 100;
+						item.download_state = RequestDownloadInfo.STATUS_COMPLETE;
+					}else {
+						item.download_progress = 0;
+					}
 				}
 			}
 		}
@@ -123,25 +128,35 @@ public class OnlineLivePhotoAdapter extends BaseAdapter {
 		}
 
 		Float money = item.getFloatMoney();
+		String one="";
 		if( money == 0f || money == -1){
-			holder.price.setText("免费");
+			one="免费";
+			holder.price.setText(one);
 			if(money == -1) {
 				holder.price.setVisibility(View.INVISIBLE);
 			}else{
 				holder.price.setVisibility(View.VISIBLE);
 			}
 			holder.price.setBackgroundResource(R.drawable.price_tag_unselect);
+
 		}else if(money == -2f){
-			holder.price.setText("限免");
+			one="限免";
+			holder.price.setText(one);
 			holder.price.setVisibility(View.VISIBLE);
 			holder.price.setBackgroundResource(R.drawable.price_tag_unselect);
 		}else {
-			holder.price.setText("¥"+money);
+			one="¥"+money;
+			holder.price.setText(one);
 			holder.price.setVisibility(View.VISIBLE);
 			holder.price.setBackgroundResource(R.drawable.price_tag_select);
+
+			if(SettingTool.getInstance().getData(item.title+"vip",false)){
+				one=one+"已购买";
+				holder.price.setText(one);
+			}
 		}
 		if(item.download_state == RequestDownloadInfo.STATUS_COMPLETE) {
-			holder.price.setText("已下载");
+			holder.price.setText(one+" 已下载");
 			holder.price.setVisibility(View.VISIBLE);
 			holder.price.setBackgroundResource(R.drawable.price_tag_yellow);
 		}
