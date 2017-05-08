@@ -265,7 +265,7 @@ public class VlcVideoPlayer implements MediaPlayerControl, Handler.Callback, IVL
         if (path.contains("://")) {
             final Media media = new Media(libVLC, Uri.parse(path));
             if (Build.VERSION.SDK_INT < 23) {
-                media.setHWDecoderEnabled(false, false);
+                //media.setHWDecoderEnabled(true, false);
             }
 
             media.setEventListener(mMediaListener);
@@ -275,7 +275,7 @@ public class VlcVideoPlayer implements MediaPlayerControl, Handler.Callback, IVL
         } else {
             final Media media = new Media(libVLC, path);
             if (Build.VERSION.SDK_INT < 23) {
-                media.setHWDecoderEnabled(false, false);
+                //media.setHWDecoderEnabled(true, false);
             }
             media.setEventListener(mMediaListener);
             //    media.parseAsync(Media.Parse.FetchLocal);
