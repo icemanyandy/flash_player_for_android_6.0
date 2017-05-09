@@ -207,7 +207,6 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 String localImage = FileNameUtils.getImagePathByName(livePhotoItem.title);
                                 String localVideo = FileNameUtils.getVideoPathByName(livePhotoItem.title);
                                 if (TextUtils.isEmpty(localImage) || TextUtils.isEmpty(localVideo)) {
-
                                     Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_previewerror, Toast.LENGTH_SHORT).show();
                                     return;
                                 }else {
@@ -218,6 +217,21 @@ public class OnlineLivePhotosActivity extends BaseActivity {
                                 }
                             }
                             //在线预览
+                            if(SettingTool.getFirstRunTimeOut(1*3600)){
+                                if(livePhotoItem.getFloatMoney()>0f && !SettingTool.getInstance().getData(livePhotoItem.title+"vip",false) &&
+                                        !SettingTool.getInstance().getSVIP()
+                                        && !SettingTool.getInstance().getSVIP()){
+                                    Toast.makeText(OnlineLivePhotosActivity.this, R.string.video_record_previewerror_reg, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent();
+                                    intent.setAction("com.softboy.lock.payme");
+                                    intent.putExtra("vodMode", true);
+                                    intent.putExtra("vodName",livePhotoItem.title);
+                                    intent.putExtra("vodMoney",livePhotoItem.getFloatMoney());
+                                    intent.addCategory(Intent.CATEGORY_DEFAULT);
+                                    startActivityForResult(intent, 0x100);
+                                    return;
+                                }
+                            }
                             Intent i = new Intent();
                             if (imgView.getDrawable() != null && imgView.getDrawable() instanceof BitmapDrawable) {
                                 PhotoHelpTools.saveBitmpFile((Bitmap) ((BitmapDrawable) imgView.getDrawable()).getBitmap(), livePhotoItem.title + ".jpg");

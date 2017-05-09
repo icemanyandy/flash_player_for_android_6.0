@@ -11,6 +11,7 @@
     <string name="video_record_settingerrordownload">sorry,LivePhoto设定失败，开始重新下载。。。</string>
     <string name="video_record_settingok">恭喜您，LivePhoto设定成功</string>
     <string name="video_record_previewerror">Livephoto预览失败，请重新下载后重试</string>
+    <string name="video_record_previewerror_reg">该资源为付费资源，请先注册或者购买哦。</string>
     <string name="video_record_previewnotdownload">图片还未下载显示呢，请稍等。</string>
     <string name="video_record_previewtips">高清Livephoto只有下载后再预览哦~</string>
     <string name="video_record_download_ok">"下载完成"</string>

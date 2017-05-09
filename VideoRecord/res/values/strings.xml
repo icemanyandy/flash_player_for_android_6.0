@@ -12,6 +12,7 @@
     <string name="video_record_settingerrordownload">sorry,LivePhoto error,downloading it。。。</string>
     <string name="video_record_settingok"> Congratulations，LivePhoto set ok.</string>
     <string name="video_record_previewerror"> preview Livephoto error,try later.</string>
+    <string name="video_record_previewerror_reg">preview error,buy it first.</string>
     <string name="video_record_previewnotdownload">Image not download，wait a moment</string>
     <string name="video_record_previewtips">HD Livephoto can preview,after you download it~</string>
     <string name="video_record_download_ok">"Download OK"</string>
