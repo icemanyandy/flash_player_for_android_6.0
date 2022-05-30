@@ -1,8 +1,8 @@
 # flash_player_for_android_9.0
-目前支持到了9.0
-不是忽悠大家。
-所以改成9.0
-         其实不是什么新技术，因为android4.1之后的android 浏览器内核版本发生了变化导致 Adobe 的Flash插件无法正常运行，大家的Flash无法正常播放。而网络上所能搜索到的方法全是WebView的方式，从而浪费了很多开发的搜索测试的时间。所以本人为了大家少走弯路让进入的每一个读者深入了解flash是如何播放，如何在android上面的各个版本中体验。
+目前支持到了12 ，目前已经在oppo 12 和鸿蒙系统上测试过，请下载安卓测试final swfplayer
+
+
+          其实不是什么新技术，因为android4.1之后的android 浏览器内核版本发生了变化导致 Adobe 的Flash插件无法正常运行，大家的Flash无法正常播放。而网络上所能搜索到的方法全是WebView的方式，从而浪费了很多开发的搜索测试的时间。所以本人为了大家少走弯路让进入的每一个读者深入了解flash是如何播放，如何在android上面的各个版本中体验。
          FLASH swf格式 单从开发语言来说分为 AS2 与 AS 3.而这2个开发flash语言重Adobe的架构上来讲是天壤之别的，所以导致flash 2.0 与flash 3.0 在android 运行体验是完全不一样的 。
       对于AS3.0 FLASH
      我们都知道adobe 现在发布的 Air  能够让android 3.0系统支持 as3.0 开发的f
